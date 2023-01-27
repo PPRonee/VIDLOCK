@@ -1,0 +1,43 @@
+.Navi{
+  /* background-color: black; */
+  background-size: cover;
+  display:flex;
+  margin-top: 0px;
+  width: 100%;
+  height: 100px;
+  margin-top: -2%;
+  margin-bottom: 100px;
+}
+
+.ButNavi{
+  width: 250px;
+  height: 60px;
+  color: white;
+  background-image: url("../../public/Assets/bobut.png");
+  background-size: cover;
+  display:flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  
+  
+  margin:5px;
+  border-radius: 0px 0px 15px 0px;
+  box-shadow: 3px 3px 3px black;
+  font-size: 0.5em;
+}
+
+.ButNavi:hover{
+  color:rgb(245, 242, 196);
+  height: 70px;
+  width: 300px;
+   transition: 0.5;
+   font-size: large;
+}
+
+a{
+  margin: 0%;
+}
+
+.vignette{
+  margin:-80%;
+}

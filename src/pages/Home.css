@@ -1,0 +1,32 @@
+.LINK{
+    display: flex;
+    align-items: center;
+    width: 1100px;
+    height: 200px;
+    background-image: url("../../public/Assets/bobut.png");
+    background-size: cover;
+    margin:15px;
+  border-radius: 0px 0px 15px 0px;
+  box-shadow: 3px 3px 3px black;
+}
+
+.LINK:hover{
+  color:rgb(245, 242, 196);
+  /* width: 1120px; */
+  height: 250px;
+   font-size: 3em;
+   transition: 0.5;
+}
+
+a{
+    color: white;
+    font-size: x-large;
+    text-decoration: none;
+}
+
+.Allinks{
+   
+    display: grid;
+    justify-content: center;
+    margin-bottom: 100px;
+}

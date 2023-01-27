@@ -1,38 +1,59 @@
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  
+  background-color: rgb(27, 38, 59) ;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Heady{
+  background-color: black;
+ margin-bottom: 40px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.Ban{
+  background-color:black;
+   width: 100%;
+   
+}
+
+
+
+.PLINK{
+  width: 1100px;
+  height: 200px;
   color: white;
+  background-image: url("../public/Assets/bobut.png");
+  background-size: cover;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  margin:15px;
+  border-radius: 0px 0px 15px 0px;
+  box-shadow: 3px 3px 3px black;
+  font-size: 2em;
+} 
+
+.PLINK:hover{
+  color:rgb(245, 242, 196);
+  /* width: 1120px; */
+  height: 250px;
+   font-size: 3em;
+   transition: 0.5;
 }
 
-.App-link {
-  color: #61dafb;
+.bod{
+  display: grid;
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+.imgbut{
+margin-right: 300px;
+height:inherit;
 }
+  
+
