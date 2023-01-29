@@ -1,6 +1,24 @@
 .text{
-    width: 900px;
-    display: flex;
+    width: 500px;
+    display: grid;
     justify-content: center;
     color:white;
+    
+}
+
+center{
+    display: grid;
+    justify-content: center;
+    
+}
+
+.englobe{
+    text-align: center;
+    background-color: rgb(119, 141, 169);
+    width: auto;
+    height: auto;
+    padding: 30px;
+  padding-bottom:70px;
+  display: flex;
+  justify-content: center;
 }
