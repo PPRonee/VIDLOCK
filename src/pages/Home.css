@@ -15,6 +15,7 @@
   /* width: 1120px; */
   height: 250px;
    font-size: 3em;
+   border: 1px solid rgb(224, 225, 221);
    transition: 0.5;
 }
 

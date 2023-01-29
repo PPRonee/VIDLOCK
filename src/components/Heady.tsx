@@ -1,6 +1,7 @@
 import BanVidLocGR from "./Assets/BanVidLocGR.png";
 import "../App.css";
 import "./Heady.css";
+import { NavLink } from "react-router-dom";
 
 const Heady = () => {
   return (
@@ -8,7 +9,10 @@ const Heady = () => {
       <div className="divbut">
         <button>Conexion</button>
         <button className="btpanier">
-          <img className="panier" src="./Assets/Panier.png" alt="panier" />
+          
+          <NavLink to="/Panier">
+            <img className="panier" src="./Assets/Panier.png" alt="panier" />
+          </NavLink>
         </button>
       </div>
       <img className="Ban" src="./Assets/BanGR.png" alt="Baniere" />;

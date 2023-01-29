@@ -11,6 +11,8 @@ import Accessoires from "./pages/Accessoires";
 import Lumieres from "./pages/Lumieres";
 import Home from "./pages/Home";
 import Procontact from "./pages/Procontact";
+import Panier from "./pages/Panier";
+import Paypal from "./pages/Paypal";
 
 function App() {
   return (
@@ -25,10 +27,11 @@ function App() {
           <Route path="/Lumieres" element={<Lumieres />} />
           <Route path="/Accessoires" element={<Accessoires />} />
           <Route path="/Procontact" element={<Procontact />} />
+          <Route path="/Panier" element={<Panier />} />
+          <Route path="/Paypal" element={<Paypal />} />
         </Routes>
         <Footy />
       </BrowserRouter>
-      
     </div>
   );
 }
