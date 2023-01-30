@@ -2,6 +2,8 @@ import BanVidLocGR from "./Assets/BanVidLocGR.png";
 import "../App.css";
 import "./Heady.css";
 import { NavLink } from "react-router-dom";
+import SearchBar from "./SearchBar";
+
 
 const Heady = () => {
   return (
@@ -15,7 +17,9 @@ const Heady = () => {
           </NavLink>
         </button>
       </div>
-      <img className="Ban" src="./Assets/BanGR.png" alt="Baniere" />;
+      <p><img className="Ban" src="./Assets/BanGR.png" alt="Baniere" /></p>;
+      <SearchBar/>
+    
     </div>
   );
 };
