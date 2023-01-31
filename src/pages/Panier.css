@@ -11,10 +11,22 @@ table{
     align-items: center;
 }
 
-.englobe{
+.englobe2{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    width: 1400px;
+    margin: 35px;
+}
+
+.englobeur2{
+    width:1400px;
+    display: grid;
+    justify-content: center;
+    background-color:rgb(65, 90, 119) ;
+    border-radius:15px ;
+    box-shadow: 3px 3px 5px black;
+    margin-bottom: 35px;
 }
 
 .butres{
@@ -41,4 +53,9 @@ table{
     color:black ;
     background-color: white;
     transition: 0.5s;
+}
+
+.panbod{
+    display: flex;
+    justify-content: center;
 }

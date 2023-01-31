@@ -1,0 +1,69 @@
+#nameUser{
+    background-color: white ;
+    width: 300px;
+    height: 35px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+#emailUser{
+    background-color: white ;
+    width: 300px;
+    height: 35px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+#passwordUser{
+    background-color: white ;
+    width: 300px;
+    height: 35px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+label{
+    color: white;
+}
+
+.englobeur{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.Connect{
+    width: 900px;
+    display: grid;
+    justify-content: center;
+    background-color:rgb(65, 90, 119) ;
+    border-radius:15px ;
+    box-shadow: 3px 3px 5px black;
+}
+
+.butcon{
+    margin-top: 30px;
+     margin-bottom: 30px;
+    width: 300px;
+}
+
+.hi{
+    color:rgb(219, 108, 234);
+    font-size: 3em;
+    text-shadow: 3px 3px 5px black;
+}
+
+.phover:hover{
+    color:rgb(219, 108, 234);
+    font-size: x-large;
+     text-shadow: 3px 3px 5px black;
+     transition: 0.5s;
+}
+
+.blockbleuclaie{
+   background-color:rgb(119, 141, 169);
+   margin-bottom:30px;
+   padding: 20px;
+   border-radius: 15px;
+}

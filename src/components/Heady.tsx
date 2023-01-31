@@ -9,7 +9,11 @@ const Heady = () => {
   return (
     <div className="Heady">
       <div className="divbut">
-        <button>Conexion</button>
+        <NavLink to="/Connexion">
+        <button>Connexion</button>
+        </NavLink>
+
+       
         <button className="btpanier">
           
           <NavLink to="/Panier">

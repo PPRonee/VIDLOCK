@@ -13,6 +13,8 @@ import Home from "./pages/Home";
 import Procontact from "./pages/Procontact";
 import Panier from "./pages/Panier";
 import Paypal from "./pages/Paypal";
+import Connexion from "./pages/Connexion";
+import Inscription from "./pages/Inscription";
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
           <Route path="/Procontact" element={<Procontact />} />
           <Route path="/Panier" element={<Panier />} />
           <Route path="/Paypal" element={<Paypal />} />
+          <Route path="/Connexion" element={<Connexion />} />
+          <Route path="/Inscription" element={<Inscription />} />
         </Routes>
         <Footy />
       </BrowserRouter>
