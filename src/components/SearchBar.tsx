@@ -9,6 +9,7 @@ interface Videos {
   categorie: string;
   auteur: string;
   tags: string[];
+  // img: string;
 }
 
 const SearchBar: React.FC = () => {

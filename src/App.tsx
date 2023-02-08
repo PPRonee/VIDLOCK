@@ -15,6 +15,8 @@ import Panier from "./pages/Panier";
 import Paypal from "./pages/Paypal";
 import Connexion from "./pages/Connexion";
 import Inscription from "./pages/Inscription";
+import ProduitDetail from "./pages/ProduitDetail";
+import { table } from "console";
 
 function App() {
   return (
@@ -33,6 +35,10 @@ function App() {
           <Route path="/Paypal" element={<Paypal />} />
           <Route path="/Connexion" element={<Connexion />} />
           <Route path="/Inscription" element={<Inscription />} />
+          <Route
+            path="/ProduitDetail"
+            element={<ProduitDetail id="{tab?.id}" />}
+          />
         </Routes>
         <Footy />
       </BrowserRouter>

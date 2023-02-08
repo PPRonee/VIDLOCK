@@ -1,0 +1,111 @@
+.Tcard {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 30% 30%;
+  background-color: rgb(65, 90, 119);
+  width: 1700px;
+  border-radius: 15px;
+  box-shadow: 3px 3px 5px black;
+  margin: 50px;
+}
+
+.cardT {
+  margin: 15px;
+  background-color: rgb(119, 141, 169);
+  width: 450px;
+  border-radius: 15px;
+  box-shadow: 3px 3px 5px black;
+}
+
+.nomen {
+  font-size: xx-large;
+}
+
+.Phototaille {
+  width: 100px;
+}
+.engloPPhototaille {
+  margin: 25px;
+  margin-right: 50px;
+  margin-bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  background-color: white;
+  border-radius: 15px;
+  border: 3px solid rgb(65, 90, 119);
+}
+
+.photETpro {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.priETpanier {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  margin: 15px;
+  margin-left: 120px;
+}
+
+.prix {
+  font-size: x-large;
+  color: rgb(27, 38, 59);
+  margin-right: 20px;
+}
+
+.butProduit{
+    font-size: large;
+    color: white;
+    background-color: rgb(65, 90, 119);
+}
+
+.butProduit:hover{
+    color:black;
+}
+
+
+
+@media only screen and (max-width: 1400px) {
+  .Tcard {
+    grid-template-columns: 50%;
+    width: auto;
+    margin: 0px;
+  }
+
+  .cardT {
+    width: 390px;
+    margin: 10px;
+  }
+
+  .nomen {
+    font-size: xx-large;
+  }
+
+  .engloPPhototaille {
+    width: 50%;
+    margin: 10px;
+    margin-right: 0;
+  }
+
+  .photETpro {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .priETpanier {
+    margin: 10px;
+    margin-left: 80px;
+    /* flex-direction: column;
+    align-items: center; */
+  }
+
+  .prix {
+    font-size: large;
+  }
+}
+

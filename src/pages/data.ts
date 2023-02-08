@@ -5,16 +5,16 @@ export const data = [
     lien: "https://www.youtube.com/embed/cngh6fCaRi",
     categorie: "camera",
     auteur: "sikana",
-        tags: ["camera", "sikana", "all"],
-    img:" {}",
-  },
+    tags: ["camera", "sikana", "all"],
+    },
+  
   {
     id: 2,
     nom: "postes et rôles des joueurs",
     lien: "https://www.youtube.com/embed/dXMoxB0fvjA",
     categorie: "camera",
     auteur: "sikana",
-    tags: ["camera", "sikana","all"],
+    tags: ["camera", "sikana", "all"],
   },
   {
     id: 3,
