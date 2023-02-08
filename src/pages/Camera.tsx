@@ -3,7 +3,8 @@ import Navbar from "../components/Navbar";
 import "./ProduitCard.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
+
 
 interface Produits {
   id: number;
@@ -29,6 +30,9 @@ function Camera() {
 
   const [tabProduits, setTabProduits] = useState<Produits[]>([]);
   const [selectedProduit, setSelectedProduit] = useState<Produits | null>(null);
+
+  
+
 
   return (
     <div>
@@ -59,13 +63,13 @@ function Camera() {
               <div className="priETpanier">
                 <NavLink
                   to={{
-                    pathname: "/ProduitDetail",
+                    pathname: "/ProduitDetail/"+tab.id,
 
                   }}
                 >
                   <button value={tab?.id}
                     className="butProduit"
-                    // onClick={() => setSelectedProduit(tab)}
+                    onClick={() => setSelectedProduit(tab)}
                   >
                     voir produit
                   </button>

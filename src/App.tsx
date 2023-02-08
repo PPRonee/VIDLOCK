@@ -4,7 +4,7 @@ import "./App.css";
 import Footy from "./components/Footy";
 import Heady from "./components/Heady";
 import Navbar from "./components/Navbar";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useParams } from "react-router-dom";
 import Camera from "./pages/Camera";
 import Audio from "./pages/Audio";
 import Accessoires from "./pages/Accessoires";
@@ -17,6 +17,8 @@ import Connexion from "./pages/Connexion";
 import Inscription from "./pages/Inscription";
 import ProduitDetail from "./pages/ProduitDetail";
 import { table } from "console";
+import Page404 from "./pages/Page404";
+
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="*" element={<Page404 />} />
           <Route path="/Camera" element={<Camera />} />
           <Route path="/Audio" element={<Audio />} />
           <Route path="/Lumieres" element={<Lumieres />} />
@@ -35,10 +38,7 @@ function App() {
           <Route path="/Paypal" element={<Paypal />} />
           <Route path="/Connexion" element={<Connexion />} />
           <Route path="/Inscription" element={<Inscription />} />
-          <Route
-            path="/ProduitDetail"
-            element={<ProduitDetail id="{tab?.id}" />}
-          />
+          <Route path="/ProduitDetail/:idProduct" element={<ProduitDetail />} />
         </Routes>
         <Footy />
       </BrowserRouter>

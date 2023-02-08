@@ -9,10 +9,29 @@
   margin: 50px;
 }
 
+.Tcard2 {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 80% ;
+  background-color: rgb(65, 90, 119);
+  /* width: 1700px; */
+  border-radius: 15px;
+  box-shadow: 3px 3px 5px black;
+  margin: 50px;
+}
+
 .cardT {
   margin: 15px;
   background-color: rgb(119, 141, 169);
   width: 450px;
+  border-radius: 15px;
+  box-shadow: 3px 3px 5px black;
+}
+
+.cardT2 {
+  margin: 15px;
+  background-color: rgb(119, 141, 169);
+  width: auto;
   border-radius: 15px;
   box-shadow: 3px 3px 5px black;
 }
