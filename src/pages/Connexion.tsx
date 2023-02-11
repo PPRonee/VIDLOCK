@@ -18,19 +18,22 @@ const Connect = () => {
     console.log(emailElement.current?.value);
     console.log(passwordElement.current?.value);
 
-    let User = {
+    let Client = {
       name: nameElement.current?.value,
       email: emailElement.current?.value,
       password: passwordElement.current?.value,
     };
 
-    axios
-      .post("http://localhost:8080/api/user/connexion", User)
+    await axios
+      .post("http://localhost:8080/api/client", Client)
       .then((response) => {
         console.log("********************************");
         console.log("response.data: ", response.data);
         localStorage.setItem("token", response.data.token); // très important à ne plus jamais supprimer
-        navigate("/Home");
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
+        alert("Connexion réussie !");
       })
       .catch((err) => {
         alert("Email ou mot de passe incorect");

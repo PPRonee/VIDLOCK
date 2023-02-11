@@ -5,13 +5,13 @@ import { useNavigate } from "react-router-dom";
 // import "./Connexion.css";
 
 const Inscription = () => {
-  const nameElement = useRef<HTMLInputElement>(null);
-  const firstnameElement = useRef<HTMLInputElement>(null);
-  const bDateElement = useRef<HTMLInputElement>(null);
-  const profElement = useRef<HTMLInputElement>(null);
-  const siretElement = useRef<HTMLInputElement>(null);
-  const adresseElement = useRef<HTMLInputElement>(null);
-  const emailElement = useRef<HTMLInputElement>(null);
+  const NomElement = useRef<HTMLInputElement>(null);
+  const PrenomElement = useRef<HTMLInputElement>(null);
+  const Date_naissance = useRef<HTMLInputElement>(null);
+  const ProffessionElement = useRef<HTMLInputElement>(null);
+  const Num_SiretElement = useRef<HTMLInputElement>(null);
+  const AdresseElement = useRef<HTMLInputElement>(null);
+  const EmailElement = useRef<HTMLInputElement>(null);
   const passwordElement = useRef<HTMLInputElement>(null);
   const confirmPasswordElement = useRef<HTMLInputElement>(null);
 
@@ -20,16 +20,17 @@ const Inscription = () => {
   const handleSubmitForm = async (e: FormEvent) => {
     e.preventDefault();
     console.log("button form clicked");
-    console.log(nameElement.current?.value);
-    console.log(firstnameElement.current?.value);
-    console.log(bDateElement.current?.value);
-    console.log(siretElement.current?.value);
-    console.log(adresseElement.current?.value);
-    console.log(emailElement.current?.value);
+    console.log(NomElement.current?.value);
+    console.log(PrenomElement.current?.value);
+    console.log(Date_naissance.current?.value);
+    console.log(Num_SiretElement.current?.value);
+    console.log(AdresseElement.current?.value);
+    console.log(EmailElement.current?.value);
     console.log(passwordElement.current?.value);
+    console.log(confirmPasswordElement.current?.value);
 
-    console.log("password object 1 : ", passwordElement);
-    console.log("password object 2 : ", confirmPasswordElement);
+    // console.log("password object 1 : ", passwordElement.current?.value);
+    // console.log("password object 2 : ", confirmPasswordElement);
 
     if (
       passwordElement.current?.value !== confirmPasswordElement.current?.value
@@ -38,24 +39,25 @@ const Inscription = () => {
     } else {
       const passWordVerif = passwordElement.current?.value;
 
-      let User = {
-        name: nameElement.current?.value,
-        firstName: firstnameElement.current?.value,
-        bDate: bDateElement.current?.value,
-        proffession: profElement.current?.value,
-        siret: siretElement.current?.value,
-        adresse: adresseElement.current?.value,
-        email: emailElement.current?.value,
-        password: passWordVerif,
+      let Client = {
+        Nom: NomElement.current?.value,
+        Prenom: PrenomElement.current?.value,
+        Date_naissance: Date_naissance.current?.value,
+        Proffession: ProffessionElement.current?.value,
+        Num_Siret: Num_SiretElement.current?.value,
+        Adressee: AdresseElement.current?.value,
+        Email: EmailElement.current?.value,
+        Password: passWordVerif,
       };
 
       axios
-        .post("http://localhost:8080/api/user/connexion", User)
+        .post("http://localhost:8080/api/client")
         .then((response) => {
           console.log("********************************");
           console.log("response.data: ", response.data);
-          localStorage.setItem("token", response.data.token); // très important à ne plus jamais supprimer
-          navigate("/Home");
+          // localStorage.setItem("token", response.data.token);
+          // très important à ne plus jamais supprimer
+          navigate("/Connexion");
         })
         .catch((err) => {
           alert("Email ou mot de passe incorect");
@@ -76,7 +78,7 @@ const Inscription = () => {
               className="form-control"
               id="nameUser"
               placeholder="nom"
-              ref={nameElement}
+              ref={NomElement}
               required
               // required rend le champ obligatoire
             />
@@ -89,7 +91,7 @@ const Inscription = () => {
               className="form-control"
               id="nameUser"
               placeholder="Prenom"
-              ref={firstnameElement}
+              ref={PrenomElement}
               required
             />
           </div>
@@ -101,7 +103,7 @@ const Inscription = () => {
               className="form-control"
               id="nameUser"
               placeholder="Date de naissance"
-              ref={bDateElement}
+              ref={Date_naissance}
               required
             />
           </div>
@@ -113,7 +115,7 @@ const Inscription = () => {
               className="form-control"
               id="nameUser"
               placeholder="Proffession"
-              ref={profElement}
+              ref={ProffessionElement}
             />
           </div>
 
@@ -124,7 +126,7 @@ const Inscription = () => {
               className="form-control"
               id="nameUser"
               placeholder="Numero Siret"
-              ref={siretElement}
+              ref={Num_SiretElement}
             />
           </div>
 
@@ -135,7 +137,7 @@ const Inscription = () => {
               className="form-control"
               id="nameUser"
               placeholder="Adresse"
-              ref={adresseElement}
+              ref={AdresseElement}
               required
             />
           </div>
@@ -147,7 +149,7 @@ const Inscription = () => {
               className="form-control"
               id="emailUser"
               placeholder="nom@mailexemple.com"
-              ref={emailElement}
+              ref={EmailElement}
               required
             />
           </div>

@@ -70,7 +70,7 @@ function ProduitDetail() {
           <div className="priETpanier">
             <p className="prix">{tabProduits?.prix_unit}€/jour</p>
             <button>
-              <img className="panier" src="./Assets/Panier.png" alt="panier" />
+              <img className="panier" src="../Assets/Panier.png" alt="panier" />
             </button>
           </div>
         </div>
