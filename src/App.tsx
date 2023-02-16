@@ -18,6 +18,7 @@ import Inscription from "./pages/Inscription";
 import ProduitDetail from "./pages/ProduitDetail";
 import { table } from "console";
 import Page404 from "./pages/Page404";
+import ConexAdmin from "./pages/conexAdmin";
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
           <Route path="/Paypal" element={<Paypal />} />
           <Route path="/Connexion" element={<Connexion />} />
           <Route path="/Inscription" element={<Inscription />} />
+          <Route path="/ConexAdmin" element={<ConexAdmin />} />
           <Route path="/ProduitDetail/:idProduct" element={<ProduitDetail />} />
         </Routes>
         <Footy />

@@ -13,6 +13,9 @@ const Footy = () => {
         <p className="pt">Contactez-nous</p>
       </NavLink>
       <p className="Ft"> Create by RoneeP</p>
+      <NavLink to="/ConexAdmin">
+        <h6 className="pt">Admin</h6>
+      </NavLink>
     </div>
   );
 };
