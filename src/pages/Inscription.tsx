@@ -23,6 +23,7 @@ const Inscription = () => {
     console.log(NomElement.current?.value);
     console.log(PrenomElement.current?.value);
     console.log(Date_naissance.current?.value);
+    console.log(ProffessionElement.current?.value);
     console.log(Num_SiretElement.current?.value);
     console.log(AdresseElement.current?.value);
     console.log(EmailElement.current?.value);
@@ -45,15 +46,17 @@ const Inscription = () => {
         Date_naissance: Date_naissance.current?.value,
         Proffession: ProffessionElement.current?.value,
         Num_Siret: Num_SiretElement.current?.value,
-        Adressee: AdresseElement.current?.value,
+        Adresse: AdresseElement.current?.value,
         Email: EmailElement.current?.value,
         Password: passWordVerif,
       };
 
+console.table(Client)
+
       axios
-        .post("http://localhost:8080/api/client")
+        .post("http://localhost:8080/api/auth/register", Client)
         .then((response) => {
-          console.log("********************************");
+          console.log("********** reception ***********");
           console.log("response.data: ", response.data);
           // localStorage.setItem("token", response.data.token);
           // très important à ne plus jamais supprimer

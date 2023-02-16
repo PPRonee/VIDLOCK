@@ -35,6 +35,6 @@ function Procontact() {
       <h2>Contactez-nous</h2>
     </div>
   );
-}
+};
 
 export default Procontact;

@@ -5,28 +5,31 @@ import { useNavigate } from "react-router-dom";
 import "./Connexion.css";
 
 const Connect = () => {
-  const nameElement = useRef<HTMLInputElement>(null);
-  const emailElement = useRef<HTMLInputElement>(null);
-  const passwordElement = useRef<HTMLInputElement>(null);
+  const NomElement = useRef<HTMLInputElement>(null);
+  const EmailElement = useRef<HTMLInputElement>(null);
+  const PasswordElement = useRef<HTMLInputElement>(null);
 
   const navigate = useNavigate();
 
   const handleSubmitForm = async (e: FormEvent) => {
     e.preventDefault();
     console.log("button form clicked");
-    console.log(nameElement.current?.value);
-    console.log(emailElement.current?.value);
-    console.log(passwordElement.current?.value);
+    console.log(NomElement.current?.value);
+    console.log(EmailElement.current?.value);
+    console.log(PasswordElement.current?.value);
 
     let Client = {
-      name: nameElement.current?.value,
-      email: emailElement.current?.value,
-      password: passwordElement.current?.value,
+      Nom: NomElement.current?.value,
+      Email: EmailElement.current?.value,
+      Password: PasswordElement.current?.value,
     };
 
+    console.table(Client);
+
     await axios
-      .post("http://localhost:8080/api/client", Client)
+      .post("http://localhost:8080/api/auth/login", Client)
       .then((response) => {
+        console.log("00000 je suis ici 00000");
         console.log("********************************");
         console.log("response.data: ", response.data);
         localStorage.setItem("token", response.data.token); // très important à ne plus jamais supprimer
@@ -35,7 +38,18 @@ const Connect = () => {
         }, 1000);
         alert("Connexion réussie !");
       })
-      .catch((err) => {
+      .catch((error) => {
+        if (error.response) {
+          console.log("xxxx  je suis la xxxx");
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          console.log(error.request);
+        } else {
+          console.log("Error", error.message);
+        }
+        console.log(error.config);
         alert("Email ou mot de passe incorect");
       });
   };
@@ -44,7 +58,7 @@ const Connect = () => {
     <div className="englobeur">
       <div className="Connect">
         <h1 className="hi">Connexion</h1>
-        {/*<form onSubmit={(e) =>{handleSubmitForm(e)}}>*/}
+       
         <form className="englobeur" onSubmit={handleSubmitForm}>
           <div className="englobeur">
             <label htmlFor="nameUser">Nom</label>
@@ -53,7 +67,7 @@ const Connect = () => {
               className="form-control"
               id="nameUser"
               placeholder="nom"
-              ref={nameElement}
+              ref={NomElement}
             />
           </div>
 
@@ -64,7 +78,7 @@ const Connect = () => {
               className="form-control"
               id="emailUser"
               placeholder="nom@mailexemple.com"
-              ref={emailElement}
+              ref={EmailElement}
             />
           </div>
 
@@ -75,7 +89,7 @@ const Connect = () => {
               className="form-control"
               id="passwordUser"
               placeholder="Password"
-              ref={passwordElement}
+              ref={PasswordElement}
             />
 
             <button className="butcon" type="submit">
