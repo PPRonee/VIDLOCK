@@ -2,7 +2,7 @@ import { FormEvent, useRef } from "react";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import "./Connexion.css";
+import "../Connexion.css";
 
 const ConexAdmin = () => {
   const NomElement = useRef<HTMLInputElement>(null);
@@ -34,7 +34,7 @@ const ConexAdmin = () => {
         console.log("response.data: ", response.data);
         localStorage.setItem("token", response.data.token); // très important à ne plus jamais supprimer
         setTimeout(() => {
-          navigate("/");
+          navigate("/adminPage");
         }, 1000);
         alert("Connexion réussie !");
       })

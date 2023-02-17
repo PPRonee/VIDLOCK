@@ -18,7 +18,14 @@ import Inscription from "./pages/Inscription";
 import ProduitDetail from "./pages/ProduitDetail";
 import { table } from "console";
 import Page404 from "./pages/Page404";
-import ConexAdmin from "./pages/conexAdmin";
+
+
+import ConexAdmin from "./pages/admin/conexAdmin";
+import AdminPage from "./pages/admin/adminPage";
+import GestionClient from "./pages/admin/GestionClient";
+import Messagerie from "./pages/admin/Messagerie";
+import SuiviCommande from "./pages/admin/SuiviCommande";
+import GestionProduit from "./pages/admin/GestionProduit";
 
 
 function App() {
@@ -39,8 +46,15 @@ function App() {
           <Route path="/Paypal" element={<Paypal />} />
           <Route path="/Connexion" element={<Connexion />} />
           <Route path="/Inscription" element={<Inscription />} />
-          <Route path="/ConexAdmin" element={<ConexAdmin />} />
           <Route path="/ProduitDetail/:idProduct" element={<ProduitDetail />} />
+          
+          
+          <Route path="/ConexAdmin" element={<ConexAdmin />} />
+          <Route path="/AdminPage" element={<AdminPage />} />
+          <Route path="/GestionClient" element={<GestionClient />} />
+          <Route path="/GestionProduit" element={<GestionProduit />} />
+          <Route path="/Messagerie" element={<Messagerie />} />
+          <Route path="/SuiviCommande" element={<SuiviCommande />} />
         </Routes>
         <Footy />
       </BrowserRouter>

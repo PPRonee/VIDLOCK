@@ -1,0 +1,29 @@
+.etiquette{
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 100px;
+    background-color: white;
+    border-radius: 15px;
+    border: 3px solid black;
+    margin: 15px;
+    list-style: none;
+    font-size: x-large;
+}
+
+.menu{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 35px;
+}
+
+.textShadow{
+    text-shadow: 3px 3px 3px black ;
+}
+
+.bla{
+    color: white;
+}
