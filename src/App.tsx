@@ -10,7 +10,7 @@ import Audio from "./pages/Audio";
 import Accessoires from "./pages/Accessoires";
 import Lumieres from "./pages/Lumieres";
 import Home from "./pages/Home";
-import Procontact from "./pages/Procontact";
+import QuiSomme from "./pages/QuiSomme";
 import Panier from "./pages/Panier";
 import Paypal from "./pages/Paypal";
 import Connexion from "./pages/Connexion";
@@ -19,14 +19,13 @@ import ProduitDetail from "./pages/ProduitDetail";
 import { table } from "console";
 import Page404 from "./pages/Page404";
 
-
 import ConexAdmin from "./pages/admin/conexAdmin";
 import AdminPage from "./pages/admin/adminPage";
 import GestionClient from "./pages/admin/GestionClient";
 import Messagerie from "./pages/admin/Messagerie";
 import SuiviCommande from "./pages/admin/SuiviCommande";
 import GestionProduit from "./pages/admin/GestionProduit";
-
+import Message from "./pages/Message";
 
 function App() {
   return (
@@ -41,14 +40,14 @@ function App() {
           <Route path="/Audio" element={<Audio />} />
           <Route path="/Lumieres" element={<Lumieres />} />
           <Route path="/Accessoires" element={<Accessoires />} />
-          <Route path="/Procontact" element={<Procontact />} />
+          <Route path="/QuiSomme" element={<QuiSomme />} />
           <Route path="/Panier" element={<Panier />} />
           <Route path="/Paypal" element={<Paypal />} />
           <Route path="/Connexion" element={<Connexion />} />
           <Route path="/Inscription" element={<Inscription />} />
           <Route path="/ProduitDetail/:idProduct" element={<ProduitDetail />} />
-          
-          
+          <Route path="/Message" element={<Message />} />
+
           <Route path="/ConexAdmin" element={<ConexAdmin />} />
           <Route path="/AdminPage" element={<AdminPage />} />
           <Route path="/GestionClient" element={<GestionClient />} />

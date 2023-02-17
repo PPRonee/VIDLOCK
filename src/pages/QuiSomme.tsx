@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import "./Procontact.css";
 
-function Procontact() {
+const QuiSomme = () => {
   return (
     <div className="App">
       <Navbar />
@@ -32,9 +32,8 @@ function Procontact() {
           </p>
         </div>
       </div>
-      <h2>Contactez-nous</h2>
     </div>
   );
 };
 
-export default Procontact;
+export default QuiSomme;

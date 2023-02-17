@@ -12,6 +12,21 @@
     height: 35px;
     border-radius: 15px;
     margin-bottom: 20px;
+    
+}
+
+#textUser{
+    border-radius: 15px;
+    height: 400px;
+}
+
+
+#inputText{
+    height: 400px;
+    border-radius: 15px;
+    margin: 0px;
+    padding: 0px;
+    text-align:justify;
 }
 
 #passwordUser{
@@ -67,3 +82,4 @@ label{
    padding: 20px;
    border-radius: 15px;
 }
+

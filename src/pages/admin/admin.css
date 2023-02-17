@@ -27,3 +27,46 @@
 .bla{
     color: white;
 }
+
+.messageR{
+    margin:15px;
+   background-color: white ;
+   border-radius: 15px;
+}
+
+.carteR{
+    display: flex;
+    justify-content: space-between;
+    /* background-color: white; */
+   
+}
+
+.case{
+    margin: 10px;
+    padding: 10px;
+    font-size: x-large;
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    width: 200px;
+}
+
+.case2{
+    margin: 10px;
+    padding: 10px;
+    font-size: x-large;
+    
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    width: 200px;
+}
+
+.Reponse{
+    font-size: x-large;
+    color:white;
+    width: 400px;
+    background-color: rgb(27, 38, 59) ;
+    border-radius: 0px 15px 15px 0px;
+}
