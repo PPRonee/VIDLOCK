@@ -9,21 +9,29 @@ const Heady = () => {
   return (
     <div className="Heady">
       <div className="divbut">
-        <NavLink to="/Connexion">
-        <button>Connexion</button>
+        <NavLink to="/UpdateClient">
+          <img
+            className="IconUser"
+            src="./Assets/IconeUser.png"
+            alt="access au compte"
+          />
         </NavLink>
 
-       
+        <NavLink to="/Connexion">
+          <button>Connexion</button>
+        </NavLink>
+
         <button className="btpanier">
-          
           <NavLink to="/Panier">
             <img className="panier" src="./Assets/Panier.png" alt="panier" />
           </NavLink>
         </button>
       </div>
-      <p><img className="Ban" src="./Assets/BanGR.png" alt="Baniere" /></p>;
-      <SearchBar/>
-    
+      <p>
+        <img className="Ban" src="./Assets/BanGR.png" alt="Baniere" />
+      </p>
+      ;
+      <SearchBar />
     </div>
   );
 };

@@ -57,7 +57,7 @@ const ConexAdmin = () => {
   return (
     <div className="englobeur">
       <div className="Connect">
-        <h1 className="hi">Connexion</h1>
+        <h1 className="hi">*** ADMIN ***</h1>
 
         <form className="englobeur" onSubmit={handleSubmitForm}>
           <div className="englobeur">
@@ -93,7 +93,7 @@ const ConexAdmin = () => {
             />
 
             <button className="butcon" type="submit">
-              Se connecter
+              Admin
             </button>
           </div>
         </form>

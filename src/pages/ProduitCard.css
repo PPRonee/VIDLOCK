@@ -14,10 +14,12 @@
   justify-content: center;
   grid-template-columns: 80% ;
   background-color: rgb(65, 90, 119);
-  /* width: 1700px; */
+  /* width: auto; */
   border-radius: 15px;
   box-shadow: 3px 3px 5px black;
   margin: 50px;
+  padding-top: 30px;
+   overflow: auto;
 }
 
 .cardT {

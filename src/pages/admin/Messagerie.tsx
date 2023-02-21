@@ -29,17 +29,31 @@ const Messagerie = () => {
       <h2 className="bla">*** Messagerie ***</h2>
 
       <div className="Tcard2">
-        {tabMessage.map((tab) => (
-          <div className="cardT2">
-            <div className="carteR">
-              <p className="case2">{tab?.id}</p>
-              <p className="case">{tab?.Nom}</p>
-              <p className="case">{tab?.Email}</p>
+        {tabMessage.map((tab, i) => (
+          <div className="" key={i}>
+            <div className="tableau">
+              <div className="colone">
+                <p className="TcaseT">ID</p>
+                <p className="TcaseT">Nom</p>
+                <p className="TcaseT">Email</p>
+                <p className="TcaseT"> Message</p>
+                <p className="TcaseT">observation</p>
+              </div>
+              <div className="colone">
+                <p className="Tcase">{tab?.id}</p>
+                <p className="Tcase">{tab?.Nom}</p>
+                <p className="Tcase">{tab?.Email}</p>
+                <p className="Tcase">{tab?.Message}</p>
+                <p className="Tcase">{tab?.observation}</p>
+                <button>
+                <img
+                  className="panier"
+                  src="./Assets/Delete-Logo.png"
+                  alt="panier"
+                  />
+                </button>
+              </div>
             </div>
-            <div className="messageR">
-              <p className="nomen">{tab?.Message}</p>
-            </div>
-            <p className="Reponse">{tab?.observation}</p>
           </div>
         ))}
         ;

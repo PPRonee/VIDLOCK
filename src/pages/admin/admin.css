@@ -70,3 +70,31 @@
     background-color: rgb(27, 38, 59) ;
     border-radius: 0px 15px 15px 0px;
 }
+
+.colone{
+    display: flex;
+    margin: 1px;
+    
+}
+
+.Tcase{
+    background-color: white;
+    width: 150px;
+    margin:1px;
+    
+}
+.TcaseT{
+    font-size: large;
+    background-color: rgb(188, 185, 185);
+    width: 150px;
+    margin:1px;
+    
+}
+
+.tableau{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+   
+    margin-bottom: 5px;
+}

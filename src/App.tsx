@@ -18,6 +18,7 @@ import Inscription from "./pages/Inscription";
 import ProduitDetail from "./pages/ProduitDetail";
 import { table } from "console";
 import Page404 from "./pages/Page404";
+import UpdateClient from "./pages/UpdateClient";
 
 import ConexAdmin from "./pages/admin/conexAdmin";
 import AdminPage from "./pages/admin/adminPage";
@@ -26,6 +27,7 @@ import Messagerie from "./pages/admin/Messagerie";
 import SuiviCommande from "./pages/admin/SuiviCommande";
 import GestionProduit from "./pages/admin/GestionProduit";
 import Message from "./pages/Message";
+
 
 function App() {
   return (
@@ -47,6 +49,7 @@ function App() {
           <Route path="/Inscription" element={<Inscription />} />
           <Route path="/ProduitDetail/:idProduct" element={<ProduitDetail />} />
           <Route path="/Message" element={<Message />} />
+          <Route path="/UpdateClient" element={<UpdateClient />} />
 
           <Route path="/ConexAdmin" element={<ConexAdmin />} />
           <Route path="/AdminPage" element={<AdminPage />} />
