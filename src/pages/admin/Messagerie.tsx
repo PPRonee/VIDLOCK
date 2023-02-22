@@ -21,6 +21,65 @@ const Messagerie = () => {
 
   const [tabMessage, SetTabMessage] = useState<Message[]>([]);
 
+  const handleDelete = (id: number) => {
+    if (window.confirm("Supprimer ce message ?")) {
+      axios
+        .delete(`http://localhost:8080/api/message/${id}`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+          },
+        })
+        .then(() => {
+          SetTabMessage(tabMessage.filter((msg) => msg.id !== id));
+          alert("le message a été supprimer")
+        })
+        .catch((error) => {
+          console.log("tu ne peux pas poster", error);
+          if (error.response.data.statusCode === 401) {
+           
+          }
+        });
+    }
+  };
+
+
+const handlePatch = (id: number, newValue: string) => {
+    axios
+      .patch(
+        `http://localhost:8080/api/message/${id}`,
+        {
+          observation: newValue,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+          },
+        }
+      )
+      .then(() => {
+        SetTabMessage(
+          tabMessage.map((msg) => {
+            if (msg.id === id) {
+              return { ...msg, observation: newValue };
+            } else {
+              return msg;
+            }
+          })
+        );
+        // setTimeout(() => {
+        //   alert("Observation mise à jour");
+        // }, 1000); // 1000ms = 1s 
+      })
+      .catch((error) => {
+        console.log("Erreur lors de la mise à jour", error);
+        if (error.response?.status === 401) {
+          // gestion de l'erreur
+        }
+      });
+
+};
+
+
   return (
     <div>
       <Link to="/AdminPage">
@@ -44,19 +103,25 @@ const Messagerie = () => {
                 <p className="Tcase">{tab?.Nom}</p>
                 <p className="Tcase">{tab?.Email}</p>
                 <p className="Tcase">{tab?.Message}</p>
-                <p className="Tcase">{tab?.observation}</p>
-                <button>
-                <img
-                  className="panier"
-                  src="./Assets/Delete-Logo.png"
-                  alt="panier"
+
+                <input
+                  value={tab?.observation}
+                  onChange={(e) => handlePatch(tab.id, e.target.value)}
+                  className="TcaseObs"
+                />
+
+                <button onClick={() => handleDelete(tab.id)}>
+                  <img
+                    className="panier"
+                    src="./Assets/Delete-Logo.png"
+                    alt="panier"
                   />
                 </button>
               </div>
             </div>
+            
           </div>
         ))}
-        ;
       </div>
     </div>
   );
