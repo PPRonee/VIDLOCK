@@ -12,6 +12,7 @@ const Inscription = () => {
   const Num_SiretElement = useRef<HTMLInputElement>(null);
   const AdresseElement = useRef<HTMLInputElement>(null);
   const EmailElement = useRef<HTMLInputElement>(null);
+  const TelElement = useRef<HTMLInputElement>(null);
   const passwordElement = useRef<HTMLInputElement>(null);
   const confirmPasswordElement = useRef<HTMLInputElement>(null);
 
@@ -27,6 +28,7 @@ const Inscription = () => {
     console.log(Num_SiretElement.current?.value);
     console.log(AdresseElement.current?.value);
     console.log(EmailElement.current?.value);
+    console.log(TelElement.current?.value);
     console.log(passwordElement.current?.value);
     console.log(confirmPasswordElement.current?.value);
 
@@ -48,6 +50,7 @@ const Inscription = () => {
         Num_Siret: Num_SiretElement.current?.value,
         Adresse: AdresseElement.current?.value,
         Email: EmailElement.current?.value,
+        Tel: TelElement.current?.value,
         Password: passWordVerif,
       };
 
@@ -153,6 +156,18 @@ console.table(Client)
               id="emailUser"
               placeholder="nom@mailexemple.com"
               ref={EmailElement}
+              required
+            />
+          </div>
+
+          <div className="englobeur">
+            <label htmlFor="TelUser">Tel</label>
+            <input
+              type="tel"
+              className="form-control"
+              id="emailUser"
+              placeholder="06 01 01 01 01"
+              ref={TelElement}
               required
             />
           </div>

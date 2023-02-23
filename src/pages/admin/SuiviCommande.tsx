@@ -237,10 +237,6 @@ const handleDelete = (id: number) => {
       .patch(
         `http://localhost:8080/api/reservation/${id}`,
         {
-          //  Date_debut: newValue,
-          // Date_fin: newValue,
-          // Produit: newValue,
-          // Nom_Admin: newValue,
           Statut_Commande: newValue,
         },
         {
@@ -255,10 +251,6 @@ const handleDelete = (id: number) => {
             if (msg.id === id) {
               return {
                 ...msg,
-                //  Date_debut: newValue,
-                // Date_fin: newValue,
-                // Produit: newValue,
-                // Nom_Admin: newValue,
                 Statut_Commande: newValue,
               };
             } else {

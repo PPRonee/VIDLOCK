@@ -91,10 +91,32 @@
     /* margin-right: 10px; */
 }
 
+.TcaseObsLit{
+    background-color: rgb(234, 233, 233);
+    width:114px;
+    /* margin:1px; */
+    /* margin-right: 10px; */
+}
+
 .TcaseT{
     font-size: large;
     background-color: rgb(188, 185, 185);
     width: 150px;
+    margin:1px;
+    
+}
+
+.TcaseTLit{
+    font-size: large;
+    background-color: rgb(188, 185, 185);
+    width: 120px;
+    margin:1px;
+    
+}
+
+.TcaseLit{
+    background-color: white;
+    width: 120px;
     margin:1px;
     
 }
@@ -105,4 +127,8 @@
     align-items: center;
    
     margin-bottom: 5px;
+}
+
+.overflow{
+    overflow: auto;
 }
