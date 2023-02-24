@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./admin.css";
 
 interface Produit {
@@ -162,6 +162,13 @@ const GestionProduit = () => {
         </Link>
         <h2 className="bla">*** Gestion des produits ***</h2>
       </div>
+
+      
+      <NavLink to="/CreationProduit" >
+        <button>Crée un nouveau produit</button>
+      </NavLink>
+
+      <h2>Tableau des produit</h2>
 
       <div className="englobeur">
         <div className="overflow">
