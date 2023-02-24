@@ -27,6 +27,7 @@ import Messagerie from "./pages/admin/Messagerie";
 import SuiviCommande from "./pages/admin/SuiviCommande";
 import GestionProduit from "./pages/admin/GestionProduit";
 import Message from "./pages/Message";
+import SearchBar from "./components/SearchBar";
 
 
 function App() {
@@ -57,6 +58,8 @@ function App() {
           <Route path="/GestionProduit" element={<GestionProduit />} />
           <Route path="/Messagerie" element={<Messagerie />} />
           <Route path="/SuiviCommande" element={<SuiviCommande />} />
+
+          <Route path="/SearchBar2" element={<SearchBar />} />
         </Routes>
         <Footy />
       </BrowserRouter>

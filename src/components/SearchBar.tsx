@@ -1,68 +1,108 @@
 import React, { useState, useEffect } from "react";
-import { data } from "../pages/data";
+import axios from "axios";
 import "./Searchbar.css";
+import { NavLink } from "react-router-dom";
 
-interface Videos {
+interface Produit {
   id: number;
-  nom: string;
-  lien: string;
+  refproduit: string;
+  marque: string;
   categorie: string;
-  auteur: string;
+  Type: string;
+  stock_initial: number;
+  stock_disponible: number;
+  prix_unit: number;
+  lien_image: string;
+  lien_video: string;
+  descriptif: string;
   tags: string[];
-  // img: string;
 }
 
-const SearchBar: React.FC = () => {
+const SearchBar = () => {
+  const [produits, setProduits] = useState<Produit[]>([]);
+  const [filteredProduits, setFilteredProduits] = useState<Produit[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredData, setFilteredData] = useState<Videos[]>(data);
 
   useEffect(() => {
-    //   si searchTerm est égale à chaine vide""
+    axios
+      .get<Produit[]>("http://localhost:8080/api/produits")
+      .then((response) => {
+        setProduits(response.data);
+        setFilteredProduits(response.data);
+      });
+  }, []);
+
+  useEffect(() => {
     if (searchTerm === "") {
-      setFilteredData([]);
+      setFilteredProduits(produits);
     } else {
-      // je met setFilteredData à []
-      //sinon j'execute le code en dessous
-      setFilteredData(
-        data.filter((item: Videos) =>
-          item.tags.some((tag) =>
-            tag.toLowerCase().includes(searchTerm.toLowerCase())
-          )
+      setFilteredProduits(
+        produits.filter((produit) =>
+          produit.Type.toLowerCase().includes(searchTerm.toLowerCase())
         )
       );
     }
-  }, [searchTerm]);
+  }, [searchTerm, produits]);
+
+  const handleSearchTermChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setSearchTerm(event.target.value);
+  };
 
   return (
-    <div className=".search-container">
+    <div>
       <input
         className="search-bar"
         type="text"
-        placeholder="Search"
         value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        onChange={handleSearchTermChange}
       />
-      <ul className="resulta">
-        {filteredData.map((item) => (
-          <div className="sch">
-            <div className="">
-              <p className="nomen">{item?.categorie}</p>
 
-              {/* <p className="categorie">{val?.categorie}</p> */}
+      <div className="englobeur">
+        {searchTerm !== "" &&
+          filteredProduits.map((tab) => (
+            <div key={tab.id}>
+              <div className="ticketSearchBar">
+                <div className="photETpro">
+                  <p className="engloPPhototaille">
+                    <img
+                      className="Phototaille"
+                      src={tab?.lien_image}
+                      alt="produit"
+                    ></img>
+                  </p>
+                  <p className="nomen">{tab?.refproduit}</p>
+                </div>
+                {/* <p>{tab?.categorie}</p> */}
 
-              <iframe
-                width="560"
-                height="315"
-                src={item?.lien}
-                title="YouTube video player"
-                // frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                // allowfullscreen
-              ></iframe>
+                <div className="priETpanier">
+                  <NavLink
+                    to={{
+                      pathname: "/ProduitDetail/" + tab.id,
+                    }}
+                  >
+                    <button
+                      value={tab?.id}
+                      className="butProduit"
+                      // onClick={() => setSelectedProduit(tab)}
+                    >
+                      voir produit
+                    </button>
+                  </NavLink>
+                  <p className="prix">{tab?.prix_unit}€/jour</p>
+                  <button>
+                    <img
+                      className="panier"
+                      src="./Assets/Panier.png"
+                      alt="panier"
+                    />
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
-      </ul>
+          ))}
+      </div>
     </div>
   );
 };
