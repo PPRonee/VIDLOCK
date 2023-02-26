@@ -2,9 +2,10 @@ h1{
     color:white;
 }
 
-table{
+.table{
     background-color: white;
-    height: 400px;
+    padding: 15px;
+    height:auto;
     width: 400px;
     display: flex;
     justify-content: center;
@@ -58,4 +59,10 @@ table{
 .panbod{
     display: flex;
     justify-content: center;
+}
+
+th{
+    padding: 10px;
+   
+    background-color:rgb(199, 198, 198);
 }

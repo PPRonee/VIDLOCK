@@ -2,9 +2,6 @@ import axios from "axios";
 import { FormEvent, useRef } from "react";
 import { Link } from "react-router-dom";
 
-
-
-
 const CreationProduit = () => {
   const refproduitElement = useRef<HTMLInputElement>(null);
   const marqueElement = useRef<HTMLInputElement>(null);
@@ -15,65 +12,63 @@ const CreationProduit = () => {
   const lien_imageElement = useRef<HTMLInputElement>(null);
   const lien_videoElement = useRef<HTMLInputElement>(null);
   const tagsElement = useRef<HTMLInputElement>(null);
-    const TypeElement = useRef<HTMLInputElement>(null);
-    const descriptifElement = useRef<HTMLInputElement>(null);
+  const TypeElement = useRef<HTMLInputElement>(null);
+  const descriptifElement = useRef<HTMLInputElement>(null);
 
-    const handleSubmitForm = async (e: FormEvent) => {
-        e.preventDefault();
-        console.log("button form clicked");
-        console.log(refproduitElement.current?.value);
-        console.log(marqueElement.current?.value);
-        console.log(categorieElement.current?.value);
-        console.log(stock_initialElement.current?.value);
-        console.log(stock_disponibleElement.current?.value);
-        console.log(prix_unitElement.current?.value);
-        console.log(lien_imageElement.current?.value);
-         console.log(lien_videoElement.current?.value); 
-        console.log(tagsElement.current?.value);
-        console.log(TypeElement.current?.value);
-        console.log(descriptifElement.current?.value);
+  const handleSubmitForm = async (e: FormEvent) => {
+    e.preventDefault();
+    console.log("button form clicked");
+    console.log(refproduitElement.current?.value);
+    console.log(marqueElement.current?.value);
+    console.log(categorieElement.current?.value);
+    console.log(stock_initialElement.current?.value);
+    console.log(stock_disponibleElement.current?.value);
+    console.log(prix_unitElement.current?.value);
+    console.log(lien_imageElement.current?.value);
+    console.log(lien_videoElement.current?.value);
+    console.log(tagsElement.current?.value);
+    console.log(TypeElement.current?.value);
+    console.log(descriptifElement.current?.value);
 
-        let Produit = {
-          refproduit: refproduitElement.current?.value,
-          marque: marqueElement.current?.value,
-          categorie: categorieElement.current?.value,
-          stock_initial: parseInt(stock_initialElement.current?.value ?? "0"),
-          stock_disponible: parseInt(
-            stock_disponibleElement.current?.value ?? "0"
-          ),
-          prix_unit: parseInt(prix_unitElement.current?.value ?? "0"),
-          lien_image: lien_imageElement.current?.value,
-          lien_video: lien_imageElement.current?.value,
-          tags: tagsElement.current?.value,
-          Type: TypeElement.current?.value,
-          descriptif: descriptifElement.current?.value,
-        };
-
-//parseInt permet de convertir les element de types string en number
-
-        console.table(Produit);
-
-        axios
-            .post("http://localhost:8080/api/produits", Produit)
-            .then((response) => {
-                console.log("********** reception ***********");
-                console.log("response.data: ", response.data);
-
-                alert("Le produit a été ajouté");
-            })
-            .catch((err) => {
-                alert("Un element est incorect");
-            });
+    let Produit = {
+      refproduit: refproduitElement.current?.value,
+      marque: marqueElement.current?.value,
+      categorie: categorieElement.current?.value,
+      stock_initial: parseInt(stock_initialElement.current?.value ?? "1"),
+      stock_disponible: parseInt(stock_disponibleElement.current?.value ?? "1"),
+      prix_unit: parseInt(prix_unitElement.current?.value ?? "1"),
+      lien_image: lien_imageElement.current?.value,
+      lien_video: lien_imageElement.current?.value,
+      tags: tagsElement.current?.value,
+      Type: TypeElement.current?.value,
+      descriptif: descriptifElement.current?.value,
     };
-  
+
+    //parseInt permet de convertir les element de types string en number
+    //en absence de valeur entrer elle sera initialiser a 1
+
+    console.table(Produit);
+
+    axios
+      .post("http://localhost:8080/api/produits", Produit)
+      .then((response) => {
+        console.log("********** reception ***********");
+        console.log("response.data: ", response.data);
+
+        alert("Le produit a été ajouté");
+      })
+      .catch((err) => {
+        alert("Un element est incorect");
+      });
+  };
 
   return (
     <div className="englobeur">
       <div>
         <Link to="/AdminPage">
           <h1 className="textShadow">*** ESPACE ADMIN ***</h1>
-              </Link>
-              
+        </Link>
+
         <h2 className="bla">*** Creation de produits ***</h2>
       </div>
       <div className="Connect">
@@ -219,5 +214,5 @@ const CreationProduit = () => {
     </div>
   );
 };
-    
-    export default CreationProduit;
+
+export default CreationProduit;

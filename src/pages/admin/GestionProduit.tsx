@@ -163,8 +163,7 @@ const GestionProduit = () => {
         <h2 className="bla">*** Gestion des produits ***</h2>
       </div>
 
-      
-      <NavLink to="/CreationProduit" >
+      <NavLink to="/CreationProduit">
         <button>Crée un nouveau produit</button>
       </NavLink>
 
@@ -203,6 +202,7 @@ const GestionProduit = () => {
                   <p className="TcaseLit">{tab?.marque}</p>
                   <p className="TcaseLit">{tab?.categorie}</p>
                   <input
+                    type="number"
                     value={tab?.stock_initial}
                     onChange={(e) =>
                       handlePatch(tab.id, parseInt(e.target.value))
@@ -210,9 +210,10 @@ const GestionProduit = () => {
                     className="TcaseObsLit"
                   />
 
-                  {/* Ici on utilise la methode parseInt pour convertir les chiffre en string */}
+                  {/* Ici on utilise la methode parseInt pour convertir les string en chiffre */}
 
                   <input
+                    type="number"
                     value={tab?.stock_disponible}
                     onChange={(e) =>
                       handlePatch2(tab.id, parseInt(e.target.value))
@@ -220,6 +221,7 @@ const GestionProduit = () => {
                     className="TcaseObsLit"
                   />
                   <input
+                    type="number"
                     value={tab?.prix_unit}
                     onChange={(e) =>
                       handlePatch3(tab.id, parseInt(e.target.value))

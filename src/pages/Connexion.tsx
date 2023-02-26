@@ -33,6 +33,8 @@ const Connect = () => {
         console.log("********************************");
         console.log("response.data: ", response.data);
         localStorage.setItem("token", response.data.token); // très important à ne plus jamais supprimer
+        localStorage.setItem("user", response.data.Client);
+        //je tente d integrer la valeur de Client dans le storage
         setTimeout(() => {
           navigate("/");
         }, 1000);

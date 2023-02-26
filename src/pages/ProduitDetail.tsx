@@ -18,21 +18,45 @@ interface Produit {
   tags: string[];
 }
 
+function saveProduits(produits: Produit[]) {
+  localStorage.setItem("produits", JSON.stringify(produits));
+}
+
+
+function getProduits(): Produit[] {
+  const produits = localStorage.getItem("produits");
+  if (produits) {
+    return JSON.parse(produits);
+  } else {
+    return [];
+  }
+}
+
 function ProduitDetail() {
-  // 1 récupérer dans l'url l'id du produit (idProduct)
-// const idProduct = {id}
-  // -> useParam() reactroutedom
-  let { idProduct } = useParams();
-  // 2 fasse ton appel API pour récupérer 1 produit par son id 
-  useEffect(() => {
-    axios.get(`http://localhost:8080/api/produits/${idProduct}`).then((response) => {
-      console.log(response.data);
-      setTabProduits(response.data);
-    });
-  }, []);
+  let { idProduct } = useParams<{ idProduct: string }>();
 
   const [tabProduits, setTabProduits] = useState<Produit>();
-  
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/api/produits/${idProduct}`)
+      .then((response) => {
+        console.log(response.data);
+        setTabProduits(response.data);
+      });
+  }, [idProduct]);
+
+  const HandleAddProduit = (produit: Produit) => {
+    const produits = getProduits();
+    
+    produits.push(produit);
+    saveProduits(produits);
+    alert("vous avez ajouter le produit dans votre panier")
+    console.table(produits);
+  };
+
+
+
 
   return (
     <div>
@@ -69,9 +93,15 @@ function ProduitDetail() {
 
           <div className="priETpanier">
             <p className="prix">{tabProduits?.prix_unit}€/jour</p>
-            <button>
-              <img className="panier" src="../Assets/Panier.png" alt="panier" />
-            </button>
+            {tabProduits && (
+              <button onClick={() => HandleAddProduit(tabProduits)}>
+                <img
+                  className="panier"
+                  src="../Assets/Panier.png"
+                  alt="panier"
+                />
+              </button>
+            )}
           </div>
         </div>
       </div>
