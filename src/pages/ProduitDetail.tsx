@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import "./ProduitCard.css";
 
 interface Produit {
+  quantité: any;
   id: number;
   refproduit: string;
   marque: string;
@@ -16,12 +17,12 @@ interface Produit {
   lien_image: string;
   lien_video: string;
   tags: string[];
+  quantitée: number;
 }
 
 function saveProduits(produits: Produit[]) {
   localStorage.setItem("produits", JSON.stringify(produits));
 }
-
 
 function getProduits(): Produit[] {
   const produits = localStorage.getItem("produits");
@@ -48,15 +49,18 @@ function ProduitDetail() {
 
   const HandleAddProduit = (produit: Produit) => {
     const produits = getProduits();
-    
-    produits.push(produit);
+    let foundProduct = produits.find((p) => p.id === produit.id);
+    if (foundProduct !== undefined) {
+      foundProduct.quantitée++;
+    } else {
+      produit.quantitée = 1;
+      produits.push(produit);
+    }
+
     saveProduits(produits);
-    alert("vous avez ajouter le produit dans votre panier")
+    alert("vous avez ajouter le produit dans votre panier");
     console.table(produits);
   };
-
-
-
 
   return (
     <div>

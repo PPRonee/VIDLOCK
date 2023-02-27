@@ -6,7 +6,7 @@ h1{
     background-color: white;
     padding: 15px;
     height:auto;
-    width: 400px;
+    width: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,4 +65,47 @@ th{
     padding: 10px;
    
     background-color:rgb(199, 198, 198);
+}
+
+td{
+    font-size:x-large;
+}
+
+.quanto{
+    font-size:xx-large;
+    color: blue;
+    display: flex;
+    justify-content: space-between;
+     margin-left:15px
+}
+
+.butx3{
+    margin-left:15px ;
+}
+
+.quantitée{
+    background-color:rgb(199, 198, 198);
+}
+.quantitée:hover{
+    background-color:white;
+    border: 3px solid black;
+}
+
+.panierOnly{
+    width:900px;
+}
+
+.coteAcote{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.leTotal{
+    font-size: 5em;
+    position:absolute;
+    margin-top:250px ;
+    margin-left:150px ;
+    
+
 }
