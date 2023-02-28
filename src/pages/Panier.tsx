@@ -21,12 +21,66 @@ interface Produit {
 }
 
 const Panier = () => {
-  const [tabProduits, setTabProduits] = useState<Produit[]>([]);
-  const [totalPanier, setTotalPanier] = useState<number>(0);
-  // const [getProduits, setgetProduits] = useState<Produit[]>([]);
-
+  // *************dateDifferences********************
   const Date_depart = useRef<HTMLInputElement>(null);
   const Date_retour = useRef<HTMLInputElement>(null);
+
+  let date1 = new Date(Date_depart.current?.value!).getTime();
+  let date2 = new Date(Date_retour.current?.value!).getTime();
+  const time_diff = date2 - date1;
+  const days_Diff = time_diff / (1000 * 3600 * 24);
+  // afficher la différence entre le nombre de jours
+
+  const handleSubmitForm = async (e: FormEvent) => {
+    e.preventDefault();
+    console.log("button form clicked");
+    console.log(Date_depart.current?.value);
+    console.log(Date_retour.current?.value);
+    
+
+    let Reservation = {
+      Date_depart: Date_depart.current?.value,
+      Date_retour: Date_retour.current?.value,
+    };
+
+    let date1 = new Date(Date_depart.current?.value!).getTime();
+    let date2 = new Date(Date_retour.current?.value!).getTime();
+    const time_diff = date2 - date1;
+    const days_Diff = time_diff / (1000 * 3600 * 24);
+    // afficher la différence entre le nombre de jours
+
+    console.table(Reservation);
+    if (
+      new Date(Date_depart.current?.value!).getTime() >
+      new Date(Date_retour.current?.value!).getTime()
+      //permet de convertir une date string en timestamp
+    ) {
+      alert("les dates sont incorrect");
+    } else {
+      // var time_diff = date2 - date1;
+      // var days_Diff = time_diff / (1000 * 3600 * 24);
+      // afficher la différence entre le nombre de jours
+      alert(`Vous avez sélectionné ${days_Diff} jours`);
+      console.log(days_Diff);
+      setTotalDays(days_Diff);
+      // const newTotal = getTotalPrice()
+      // setTotalPanier(newTotal);
+    }
+  };
+
+  console.log(
+    "date depart en timestamp",
+    new Date(Date_depart.current?.value!).getTime()
+  );
+  console.log(
+    "date depart en timestamp",
+    new Date(Date_retour.current?.value!).getTime()
+  );
+
+  // *************dateDifferences********************
+  const [tabProduits, setTabProduits] = useState<Produit[]>([]);
+  const [totalPanier, setTotalPanier] = useState<number>(0);
+  const [totalDays, setTotalDays] = useState<number>(1);
 
   function saveProduits(produits: Produit[]) {
     localStorage.setItem("produits", JSON.stringify(produits));
@@ -54,8 +108,6 @@ const Panier = () => {
     saveProduits(produits);
     // alert("vous avez ajouter le produit dans votre panier");
     console.table(produits);
-    //  refreshPanier();
-    // getProduits();
     setTabProduits(produits);
   };
 
@@ -76,12 +128,15 @@ const Panier = () => {
     setTabProduits(produits);
   };
 
+  // let totalDays = days_Diff
+
   function getTotalPrice(): number {
     let produits = getProduits();
     let total = 0;
     for (let produit of produits) {
-      total += produit.quantitée * produit.prix_unit;
+      total += produit.quantitée * produit.prix_unit * totalDays;
     }
+    // console.log(total);
     return total;
   }
 
@@ -96,30 +151,19 @@ const Panier = () => {
     console.table(produits);
   };
 
- 
   useEffect(() => {
     const produits = getProduits();
     setTabProduits(produits);
   }, []);
 
   useEffect(() => {
+    // const totalDays = days_Diff
     const total = getTotalPrice();
     setTotalPanier(total);
-  }, [tabProduits]);
+  }, [tabProduits, totalDays]);
 
-  const handleSubmitForm = async (e: FormEvent) => {
-    e.preventDefault();
-    console.log("button form clicked");
-    console.log(Date_depart.current?.value);
-    console.log(Date_retour.current?.value);
 
-    let Reservation = {
-      Date_depart: Date_depart.current?.value,
-      Date_retour: Date_retour.current?.value,
-    };
 
-    console.table(Reservation);
-  };
 
   return (
     <div>
@@ -244,3 +288,6 @@ const Panier = () => {
 };
 
 export default Panier;
+function dateDiff(date1: Date, date2: Date) {
+  throw new Error("Function not implemented.");
+}
