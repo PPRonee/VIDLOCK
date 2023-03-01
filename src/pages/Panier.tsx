@@ -36,7 +36,6 @@ const Panier = () => {
     console.log("button form clicked");
     console.log(Date_depart.current?.value);
     console.log(Date_retour.current?.value);
-    
 
     let Reservation = {
       Date_depart: Date_depart.current?.value,
@@ -56,15 +55,13 @@ const Panier = () => {
       //permet de convertir une date string en timestamp
     ) {
       alert("les dates sont incorrect");
-    } else {
-      // var time_diff = date2 - date1;
-      // var days_Diff = time_diff / (1000 * 3600 * 24);
-      // afficher la différence entre le nombre de jours
+    } else if (
+      Date_depart.current?.value !== undefined &&
+      Date_retour.current?.value !== undefined
+    ) {
       alert(`Vous avez sélectionné ${days_Diff} jours`);
       console.log(days_Diff);
       setTotalDays(days_Diff);
-      // const newTotal = getTotalPrice()
-      // setTotalPanier(newTotal);
     }
   };
 
@@ -123,12 +120,9 @@ const Panier = () => {
     }
 
     saveProduits(produits);
-    // alert("vous avez enlevé le produit dans votre panier");
     console.table(produits);
     setTabProduits(produits);
   };
-
-  // let totalDays = days_Diff
 
   function getTotalPrice(): number {
     let produits = getProduits();
@@ -162,15 +156,12 @@ const Panier = () => {
     setTotalPanier(total);
   }, [tabProduits, totalDays]);
 
-
-
-
   return (
     <div>
       <Navbar />
       <div className="panbod">
         <div className="englobeur2">
-          <p> Veuillez entrer les dates de réservation souhaiter</p>
+          <h3 className="titdate"> Veuillez entrer les dates de réservation souhaiter</h3>
 
           <form className="englobeur" onChange={handleSubmitForm}>
             <div className="englobeur">
