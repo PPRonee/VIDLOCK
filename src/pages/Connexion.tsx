@@ -4,12 +4,17 @@ import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./Connexion.css";
 
+
+
 const Connect = () => {
   const NomElement = useRef<HTMLInputElement>(null);
   const EmailElement = useRef<HTMLInputElement>(null);
   const PasswordElement = useRef<HTMLInputElement>(null);
 
   const navigate = useNavigate();
+
+
+
 
   const handleSubmitForm = async (e: FormEvent) => {
     e.preventDefault();
@@ -32,8 +37,8 @@ const Connect = () => {
         console.log("00000 je suis ici 00000");
         console.log("********************************");
         console.log("response.data: ", response.data);
-        localStorage.setItem("token", response.data.token); // très important à ne plus jamais supprimer
-        localStorage.setItem("user", response.data.Client);
+        localStorage.setItem("token", response.data.accessToken); // très important à ne plus jamais supprimer
+        localStorage.setItem("client", response.data.Client);
         //je tente d integrer la valeur de Client dans le storage
         setTimeout(() => {
           navigate("/");

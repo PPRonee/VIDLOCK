@@ -85,6 +85,7 @@
 }
 
 .TcaseObs{
+     font-size: medium;
     background-color: rgb(234, 233, 233);
     width: 144px;
     /* margin:1px; */
@@ -99,7 +100,7 @@
 }
 
 .TcaseT{
-    font-size: large;
+    font-size: medium;
     background-color: rgb(188, 185, 185);
     width: 150px;
     margin:1px;
@@ -107,7 +108,7 @@
 }
 
 .TcaseTLit{
-    font-size: large;
+    font-size: medium;
     background-color: rgb(188, 185, 185);
     width: 120px;
     margin:1px;
@@ -115,6 +116,7 @@
 }
 
 .TcaseLit{
+     font-size: medium;
     background-color: white;
     width: 120px;
     margin:1px;

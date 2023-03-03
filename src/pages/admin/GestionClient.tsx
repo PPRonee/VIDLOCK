@@ -32,6 +32,28 @@ const GestionClient = () => {
 const [tabClient, SetTabClient] = useState<Client[]>([]);
 
 
+  const handleDelete = (id: number) => {
+    if (window.confirm("Supprimer ce client ?")) {
+      axios
+        .delete(`http://localhost:8080/api/client/${id}`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+          },
+        })
+        .then(() => {
+          SetTabClient(tabClient.filter((msg) => msg.id !== id));
+          alert("le client a été supprimer");
+        })
+        .catch((error) => {
+          console.log("tu ne peux pas poster", error);
+          if (error.response.data.statusCode === 401) {
+          }
+        });
+    }
+  };
+  
+  
+  
   return (
     <div>
       <div>
@@ -52,30 +74,30 @@ const [tabClient, SetTabClient] = useState<Client[]>([]);
           <p className="TcaseTLit">Adresse</p>
           <p className="TcaseTLit">Email</p>
           <p className="TcaseTLit">Tel</p>
-          <p className="TcaseT">Password</p>
+          {/* <p className="TcaseT">Password</p> */}
         </div>
 
         <div className="">
           {tabClient.map((tab, i) => (
             <div className="colone" key={i}>
               <div className="colone">
-                <p className="Tcase">{tab?.id}</p>
-                <p className="Tcase">{tab?.Nom}</p>
-                <p className="Tcase">{tab?.Prenom}</p>
-                <p className="Tcase">{tab?.Date_naissance}</p>
-                <p className="Tcase">{tab?.Proffession}</p>
-                <p className="Tcase">{tab?.Num_Siret}</p>
-                <p className="Tcase">{tab?.Adresse}</p>
-                <p className="Tcase">{tab?.Email}</p>
-                <p className="Tcase">{tab?.Tel}</p>
-                <p className="Tcase">{tab?.Password}</p>
-                {/* <button onClick={() => handleDelete(tab.id)}>
+                <p className="TcaseLit">{tab?.id}</p>
+                <p className="TcaseLit">{tab?.Nom}</p>
+                <p className="TcaseLit">{tab?.Prenom}</p>
+                <p className="TcaseLit">{tab?.Date_naissance}</p>
+                <p className="TcaseLit">{tab?.Proffession}</p>
+                <p className="TcaseLit">{tab?.Num_Siret}</p>
+                <p className="TcaseLit">{tab?.Adresse}</p>
+                <p className="TcaseLit">{tab?.Email}</p>
+                <p className="TcaseLit">{tab?.Tel}</p>
+                {/* <p className="Tcase">{tab?.Password}</p> */}
+                <button onClick={() => handleDelete(tab.id)}>
                   <img
                     className="panier"
                     src="./Assets/Delete-Logo.png"
                     alt="panier"
                   />
-                </button> */}
+                </button>
               </div>
             </div>
           ))}

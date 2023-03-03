@@ -3,6 +3,7 @@ import { FormEvent, useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import "./Panier.css";
+import jwt_decode from "jwt-decode";
 
 interface Produit {
   // filter(arg0: (p: any) => boolean): Produit;
@@ -78,6 +79,7 @@ const Panier = () => {
   const [tabProduits, setTabProduits] = useState<Produit[]>([]);
   const [totalPanier, setTotalPanier] = useState<number>(0);
   const [totalDays, setTotalDays] = useState<number>(1);
+  const [siret, setSiret] = useState<string>();
 
   function saveProduits(produits: Produit[]) {
     localStorage.setItem("produits", JSON.stringify(produits));
@@ -127,9 +129,16 @@ const Panier = () => {
   function getTotalPrice(): number {
     let produits = getProduits();
     let total = 0;
-    for (let produit of produits) {
-      total += produit.quantitée * produit.prix_unit * totalDays;
+    if (siret  !== undefined) {
+      for (let produit of produits) {
+        total += produit.quantitée * produit.prix_unit * totalDays * 0.8;
+      }
+    } else {
+      for (let produit of produits) {
+        total += produit.quantitée * produit.prix_unit * totalDays;
+      }
     }
+    // setSiret(siret);
     // console.log(total);
     return total;
   }
@@ -145,13 +154,24 @@ const Panier = () => {
     console.table(produits);
   };
 
+  
+
+
+
   useEffect(() => {
     const produits = getProduits();
     setTabProduits(produits);
+    const accessToken = localStorage.getItem("token");
+    if (accessToken) {
+      const payload = jwt_decode(accessToken);
+      console.table(payload);
+      console.log(JSON.stringify(payload));
+      console.log(accessToken)
+    }
   }, []);
 
   useEffect(() => {
-    // const totalDays = days_Diff
+    
     const total = getTotalPrice();
     setTotalPanier(total);
   }, [tabProduits, totalDays]);
@@ -161,7 +181,10 @@ const Panier = () => {
       <Navbar />
       <div className="panbod">
         <div className="englobeur2">
-          <h3 className="titdate"> Veuillez entrer les dates de réservation souhaiter</h3>
+          <h3 className="titdate">
+            {" "}
+            Veuillez entrer les dates de réservation souhaiter
+          </h3>
 
           <form className="englobeur" onChange={handleSubmitForm}>
             <div className="englobeur">
@@ -255,7 +278,9 @@ const Panier = () => {
             </div>
             <div className="coteAcote">
               <div>
-                <div className="leTotal">{totalPanier} €</div>
+                <div className="leTotal">{totalPanier} € </div>
+                <div className="leTotalTTC">TTC</div>
+
                 <p>
                   <img
                     className="postit"
@@ -279,6 +304,3 @@ const Panier = () => {
 };
 
 export default Panier;
-function dateDiff(date1: Date, date2: Date) {
-  throw new Error("Function not implemented.");
-}

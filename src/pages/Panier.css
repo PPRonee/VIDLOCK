@@ -104,10 +104,15 @@ td{
 .leTotal{
     font-size: 5em;
     position:absolute;
-    margin-top:250px ;
+    margin-top:230px ;
     margin-left:150px ;
-    
+}
 
+.leTotalTTC{
+    font-size: 4em;
+    position:absolute;
+    margin-top:310px ;
+    margin-left:170px ;
 }
 
 .titdate{

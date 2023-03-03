@@ -36,9 +36,9 @@ if (
       const passWordVerif = passwordElement.current?.value;
 
       let Client = {
-        Nom: NomElement.current?.value,
-        Prenom: PrenomElement.current?.value,
-        Date_naissance: Date_naissance.current?.value,
+        // Nom: NomElement.current?.value,
+        // Prenom: PrenomElement.current?.value,
+        // Date_naissance: Date_naissance.current?.value,
         Proffession: ProffessionElement.current?.value,
         Num_Siret: Num_SiretElement.current?.value,
         Adresse: AdresseElement.current?.value,
@@ -49,7 +49,7 @@ if (
 console.table(Client)
 
       axios
-        .post("http://localhost:8080/api/client/id", Client)
+        .patch("http://localhost:8080/api/client/id", Client)
         .then((response) => {
           console.log("********** reception ***********");
           console.log("response.data: ", response.data);

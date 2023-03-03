@@ -1,3 +1,4 @@
+import { tab } from "@testing-library/user-event/dist/tab";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
@@ -48,6 +49,9 @@ const GestionProduit = () => {
   };
 
   const handlePatch = (id: number, newValue: number) => {
+    console.log("coucou", id);
+    console.log("coucou 2", tabProduit);
+
     axios
       .patch(
         `http://localhost:8080/api/produits/${id}`,
@@ -81,79 +85,77 @@ const GestionProduit = () => {
         }
       });
   };
- 
+
   const handlePatch2 = (id: number, newValue: number) => {
-     axios
-       .patch(
-         `http://localhost:8080/api/produits/${id}`,
-         {
-           stock_disponible: newValue,
-         },
-         {
-           headers: {
-             Authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
-           },
-         }
-       )
-       .then(() => {
-         SetTabProduit(
-           tabProduit.map((msg) => {
-             if (msg.id === id) {
-               return {
-                 ...msg,
-                 stock_disponible: newValue,
-               };
-             } else {
-               return msg;
-             }
-           })
-         );
-         
-       })
-       .catch((error) => {
-         console.log("Erreur lors de la mise à jour", error);
-         if (error.response?.status === 401) {
-           // gestion de l'erreur
-         }
-       });
-   };
-  
- const handlePatch3 = (id: number, newValue: number) => {
-   axios
-     .patch(
-       `http://localhost:8080/api/produits/${id}`,
-       {
-         prix_unit: newValue,
-       },
-       {
-         headers: {
-           Authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
-         },
-       }
-     )
-     .then(() => {
-       SetTabProduit(
-         tabProduit.map((msg) => {
-           if (msg.id === id) {
-             return {
-               ...msg,
-               prix_unit: newValue,
-             };
-           } else {
-             return msg;
-           }
-         })
-       );
-     })
-     .catch((error) => {
-       console.log("Erreur lors de la mise à jour", error);
-       if (error.response?.status === 401) {
-         // gestion de l'erreur
-       }
-     });
- };
-  
-  
+    axios
+      .patch(
+        `http://localhost:8080/api/produits/${id}`,
+        {
+          stock_disponible: newValue,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+          },
+        }
+      )
+      .then(() => {
+        SetTabProduit(
+          tabProduit.map((msg) => {
+            if (msg.id === id) {
+              return {
+                ...msg,
+                stock_disponible: newValue,
+              };
+            } else {
+              return msg;
+            }
+          })
+        );
+      })
+      .catch((error) => {
+        console.log("Erreur lors de la mise à jour", error);
+        if (error.response?.status === 401) {
+          // gestion de l'erreur
+        }
+      });
+  };
+
+  const handlePatch3 = (id: number, newValue: number) => {
+    axios
+      .patch(
+        `http://localhost:8080/api/produits/${id}`,
+        {
+          prix_unit: newValue,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+          },
+        }
+      )
+      .then(() => {
+        SetTabProduit(
+          tabProduit.map((msg) => {
+            if (msg.id === id) {
+              return {
+                ...msg,
+                prix_unit: newValue,
+              };
+            } else {
+              return msg;
+            }
+          })
+        );
+      })
+      .catch((error) => {
+        console.log("Erreur lors de la mise à jour", error);
+        if (error.response?.status === 401) {
+          // gestion de l'erreur
+        }
+      });
+  };
+
   return (
     <div>
       <div>
