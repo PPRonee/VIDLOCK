@@ -13,8 +13,6 @@ const UpdateClient = () => {
   const passwordElement = useRef<HTMLInputElement>(null);
   const confirmPasswordElement = useRef<HTMLInputElement>(null);
 
-  
-
   const handleSubmitForm = async (e: FormEvent) => {
     e.preventDefault();
     console.log("button form clicked");
@@ -28,7 +26,7 @@ const UpdateClient = () => {
     console.log(passwordElement.current?.value);
     console.log(confirmPasswordElement.current?.value);
 
-if (
+    if (
       passwordElement.current?.value !== confirmPasswordElement.current?.value
     ) {
       alert("Les mots de passe ne correspondent pas.");
@@ -46,7 +44,7 @@ if (
         Password: passWordVerif,
       };
 
-console.table(Client)
+      console.table(Client);
 
       axios
         .patch("http://localhost:8080/api/client/id", Client)
@@ -63,8 +61,7 @@ console.table(Client)
     }
   };
 
-// ***********a remplacer par un patch************ */
-
+  // ***********a remplacer par un patch************ */
 
   return (
     <div>
@@ -85,7 +82,6 @@ console.table(Client)
           <h1 className="hi">Modifier compte:</h1>
           {/*<form onSubmit={(e) =>{handleSubmitForm(e)}}>*/}
           <form className="englobeur" onSubmit={handleSubmitForm}>
-            
             <div className="englobeur">
               <label htmlFor="nameUser">Proffession</label>
               <input
@@ -157,7 +153,7 @@ console.table(Client)
             </div>
 
             <button className="butcon" type="submit">
-              Modifier 
+              Modifier
             </button>
           </form>
         </div>

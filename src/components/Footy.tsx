@@ -14,7 +14,7 @@ const Footy = () => {
       </NavLink>
       <p className="Ft"> Create by RoneeP</p>
       <NavLink to="/ConexAdmin">
-        <h6 className="pt">Admin</h6>
+        <h6 className="pt">Admin only</h6>
       </NavLink>
     </div>
   );

@@ -8,19 +8,27 @@ const Home = () => {
       <div className="">
         <div className="Allinks">
           <NavLink to="/Camera" className="LINK">
-            <img className="imgbut" src="./Assets/ursa.png"></img>
+            <img className="imgbut" src="./Assets/ursa.png" alt="cameras"></img>
             <p>CAMERA</p>
           </NavLink>
           <NavLink to="/Audio" className="LINK">
-            <img className="imgbut" src="./Assets/Micrec.png"></img>
+            <img className="imgbut" src="./Assets/Micrec.png" alt="audio"></img>
             <p>AUDIOS</p>
           </NavLink>
           <NavLink to="/Lumieres" className="LINK">
-            <img className="imgbut" src="./Assets/eclairage.png"></img>
+            <img
+              className="imgbut"
+              src="./Assets/eclairage.png"
+              alt="eclairages"
+            ></img>
             <p>LUMIERES</p>
           </NavLink>
           <NavLink to="/Accessoires" className="LINK">
-            <img className="imgbut" src="./Assets/Accessoires.png"></img>
+            <img
+              className="imgbut"
+              src="./Assets/Accessoires.png"
+              alt="accessoires"
+            ></img>
             <p>ACCESSOIRES</p>
           </NavLink>
         </div>

@@ -44,6 +44,11 @@
 li {
   margin: 10px;
 }
+.rech{
+ position: absolute;
+ margin-top: -200px;
+ margin-left: 350px;
+}
 
 @media (max-width: 600px) {
   .search-bar {

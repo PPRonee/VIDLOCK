@@ -6,7 +6,7 @@ const Panier = () => {
   return (
     <div>
       <NavLink to="/" className="ButNavi">
-        <img className="imgbut" src="./Assets/Acc.png"></img>
+        <img className="imgbut" src="./Assets/Acc.png" alt="navigation acceuil"></img>
         <p className="vignette">ACCUEIL</p>
       </NavLink>
 

@@ -52,12 +52,16 @@ const SearchBar = () => {
 
   return (
     <div>
-      <input
-        className="search-bar"
-        type="text"
-        value={searchTerm}
-        onChange={handleSearchTermChange}
-      />
+      <label  htmlFor="recherche">
+       
+        <input
+          className="search-bar"
+          type="text"
+          value={searchTerm}
+          onChange={handleSearchTermChange}
+        />
+        <p className="rech"> Rechercher un produit:</p>
+      </label>
 
       <div className="englobeur">
         {searchTerm !== "" &&
