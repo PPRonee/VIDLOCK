@@ -12,7 +12,6 @@
 
 .LINK:hover{
   color:rgb(245, 242, 196);
-  /* width: 1120px; */
   height: 250px;
    font-size: 3em;
    border: 1px solid rgb(224, 225, 221);
@@ -30,4 +29,38 @@ a{
     display: grid;
     justify-content: center;
     margin-bottom: 100px;
+}
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 767px) {
+ .LINK{
+    display: flex;
+    align-items: center;
+    width: 500px;
+    height: 80px;
+    background-image: url("../../public/Assets/bobut.png");
+    background-size: cover;
+    margin:15px;
+  border-radius: 0px 0px 15px 0px;
+  box-shadow: 3px 3px 3px black;
+}
+
+.LINK:hover{
+   width: 500px;
+    height: 80px;
+  color:rgb(245, 242, 196);
+   font-size: 2em;
+   border: 1px solid rgb(224, 225, 221);
+   transition: 0.5;
+} 
+
+p{
+  margin-left: -80px;
+}
 }

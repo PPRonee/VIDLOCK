@@ -37,3 +37,39 @@ height:inherit;
 h2{
   color: white;
 }
+
+
+@media only screen and (max-width: 767px) {
+ 
+.Ban{
+  /* background-color:black; */
+   width: 100%;
+   
+}
+
+.Heady{
+  /* background-color: black; */
+ margin-bottom: 0px;
+}
+
+body{
+  width: auto;
+  background-color: rgb(27, 38, 59) ;
+}
+
+
+.imgbut{
+  
+margin-right: 300px;
+height:inherit;
+}
+  
+
+
+
+
+
+
+
+
+}

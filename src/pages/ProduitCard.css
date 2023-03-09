@@ -1,9 +1,14 @@
+
+body{
+  width: 100%;
+}
+
 .Tcard {
   display: grid;
   justify-content: center;
-  grid-template-columns: 30% 30%;
+  grid-template-columns: 35% 35%;
   background-color: rgb(65, 90, 119);
-  width: 1700px;
+ width: auto;
   border-radius: 15px;
   box-shadow: 3px 3px 5px black;
   margin: 50px;
@@ -11,10 +16,10 @@
 
 .Tcard2 {
   display: grid;
-  justify-content: center;
+  justify-content: space-around;
   grid-template-columns: 80% ;
   background-color: rgb(65, 90, 119);
-  /* width: auto; */
+
   border-radius: 15px;
   box-shadow: 3px 3px 5px black;
   margin: 50px;
@@ -61,7 +66,7 @@
 
 .photETpro {
   display: flex;
-  /* justify-content: center; */
+  
   align-items: center;
 }
 
@@ -91,42 +96,43 @@
 
 
 
-@media only screen and (max-width: 1400px) {
-  .Tcard {
-    grid-template-columns: 50%;
+
+
+@media only screen and (max-width: 767px) {
+  body{
+    width:700px;
+    display: grid;
+    justify-content: center;
+  }
+
+.Tcard {
     width: auto;
-    margin: 0px;
-  }
-
-  .cardT {
-    width: 390px;
-    margin: 10px;
-  }
-
-  .nomen {
-    font-size: xx-large;
-  }
-
-  .engloPPhototaille {
-    width: 50%;
-    margin: 10px;
-    margin-right: 0;
-  }
-
-  .photETpro {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns:100%;
+    justify-content: center;
     align-items: center;
   }
 
-  .priETpanier {
-    margin: 10px;
-    margin-left: 80px;
-    /* flex-direction: column;
-    align-items: center; */
+  
+.nomen {
+    font-size:x-large;
+    margin-left: 10px;
   }
-
-  .prix {
-    font-size: large;
-  }
+  .cardT2 {
+  margin: 15px;
+  background-color: rgb(119, 141, 169);
+  width: 100p;
+  border-radius: 15px;
+  box-shadow: 3px 3px 5px black;
 }
-
+.center{
+  display: flex;
+  justify-content: center;
+}
+.priETpanier {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  /* margin-left: 20px; */
+}
+}

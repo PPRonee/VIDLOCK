@@ -25,15 +25,7 @@ center{
   justify-content: center;
 }
 
-.ticketSearchBar{
-   
-    background-color: rgb(119, 141, 169);
-   display: flex;
-   margin: 5px;
-   height: 230px ;
-   width: 750px;
-   border-radius: 0px 0px 15px 0px;
-}
+
 
 .tof{
     width: 450px;

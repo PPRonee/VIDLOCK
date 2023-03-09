@@ -42,49 +42,50 @@ function Camera() {
 
       {/* if(categorie.value==="camera"){
       } */}
+      <div className="center">
+        <div className="Tcard">
+          {tabProduits
+            // .filter((produit) => produit.categorie === "Camera")
+            .map((tab, i) => (
+              <div className="cardT" key={i}>
+                <div className="photETpro">
+                  <p className="engloPPhototaille">
+                    <img
+                      className="Phototaille"
+                      src={tab?.lien_image}
+                      alt="produit"
+                    ></img>
+                  </p>
+                  <p className="nomen">{tab?.refproduit}</p>
+                </div>
+                <p>{tab?.categorie}</p>
 
-      <div className="Tcard">
-        {tabProduits
-          // .filter((produit) => produit.categorie === "Camera")
-          .map((tab, i) => (
-            <div className="cardT" key={i}>
-              <div className="photETpro">
-                <p className="engloPPhototaille">
-                  <img
-                    className="Phototaille"
-                    src={tab?.lien_image}
-                    alt="produit"
-                  ></img>
-                </p>
-                <p className="nomen">{tab?.refproduit}</p>
-              </div>
-              <p>{tab?.categorie}</p>
-
-              <div className="priETpanier">
-                <NavLink
-                  to={{
-                    pathname: "/ProduitDetail/"+tab.id,
-
-                  }}
-                >
-                  <button value={tab?.id}
-                    className="butProduit"
-                    onClick={() => setSelectedProduit(tab)}
+                <div className="priETpanier">
+                  <NavLink
+                    to={{
+                      pathname: "/ProduitDetail/" + tab.id,
+                    }}
                   >
-                    voir produit
+                    <button
+                      value={tab?.id}
+                      className="butProduit"
+                      onClick={() => setSelectedProduit(tab)}
+                    >
+                      voir produit
+                    </button>
+                  </NavLink>
+                  <p className="prix">{tab?.prix_unit}€/jour</p>
+                  <button>
+                    <img
+                      className="panier"
+                      src="./Assets/Panier.png"
+                      alt="panier"
+                    />
                   </button>
-                </NavLink>
-                <p className="prix">{tab?.prix_unit}€/jour</p>
-                <button>
-                  <img
-                    className="panier"
-                    src="./Assets/Panier.png"
-                    alt="panier"
-                  />
-                </button>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+        </div>
       </div>
     </div>
   );
