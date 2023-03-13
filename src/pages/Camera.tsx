@@ -17,7 +17,7 @@ interface Produits {
   prix_unit: number;
   lien_image: string;
   lien_video: string;
-  tags: string[];
+  Type: string;
 }
 
 function Camera() {

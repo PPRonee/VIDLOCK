@@ -20,6 +20,12 @@ interface Produit {
   tags: string[];
   quantitée: number;
 }
+interface PayloadToken {
+  Nom: string;
+  Siret: string;
+  iat: number;
+  exp: number;
+}
 
 const Panier = () => {
   // *************dateDifferences********************
@@ -129,7 +135,7 @@ const Panier = () => {
   function getTotalPrice(): number {
     let produits = getProduits();
     let total = 0;
-    if (siret  !== undefined) {
+    if (payload?.Siret) {
       for (let produit of produits) {
         total += produit.quantitée * produit.prix_unit * totalDays * 0.8;
       }
@@ -154,32 +160,39 @@ const Panier = () => {
     console.table(produits);
   };
 
-  
-
-
-
   useEffect(() => {
     const produits = getProduits();
     setTabProduits(produits);
     const accessToken = localStorage.getItem("token");
     if (accessToken) {
-      const payload = jwt_decode(accessToken);
-      console.table(payload);
-      console.log(JSON.stringify(payload));
-      console.log(accessToken)
+      const payloadRecup: PayloadToken = jwt_decode(accessToken);
+      setPayload(payloadRecup);
+      console.table(payloadRecup);
+      console.log(JSON.stringify(payloadRecup));
+      console.log("payloadRecup",payloadRecup.Nom);
     }
   }, []);
 
   useEffect(() => {
-    
     const total = getTotalPrice();
     setTotalPanier(total);
   }, [tabProduits, totalDays]);
 
+  const [payload, setPayload] = useState<PayloadToken>();
+
+  useEffect(() => {
+    let localStoragePayload = localStorage.getItem("payload");
+    if (localStoragePayload) {
+    }
+  }, []);
+   console.log("payload use state",payload);
+   
   return (
     <div>
       <Navbar />
-      <div className="panbod">
+      <div>
+        <h2> Mr/Mme {payload?.Nom}</h2>
+        <div className="panbod"></div>
         <div className="englobeur2">
           <h3 className="titdate">
             {" "}
