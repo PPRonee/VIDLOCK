@@ -40,12 +40,11 @@ function Camera() {
         <Navbar />
       </div>
 
-      {/* if(categorie.value==="camera"){
-      } */}
+      
       <div className="center">
         <div className="Tcard">
           {tabProduits
-            // .filter((produit) => produit.categorie === "Camera")
+            .filter((produit) => produit.categorie === "Camera")
             .map((tab, i) => (
               <div className="cardT" key={i}>
                 <div className="photETpro">

@@ -14,8 +14,9 @@ interface Produit {
   prix_unit: number;
   lien_image: string;
   lien_video: string;
-  tags: string[];
+  // tags: string[];
   descriptif: string;
+  Type:string
 }
 
 const GestionProduit = () => {
@@ -185,7 +186,7 @@ const GestionProduit = () => {
               <p className="TcaseTLit">prix_unit</p>
               <p className="TcaseT">lien_image</p>
               <p className="TcaseT">lien_video</p>
-              <p className="TcaseTLit">tags</p>
+              <p className="TcaseTLit">Type</p>
               <p className="TcaseT">descriptif</p>
             </div>
 
@@ -232,7 +233,7 @@ const GestionProduit = () => {
                   />
                   <p className="Tcase">{tab?.lien_image}</p>
                   <p className="Tcase">{tab?.lien_video}</p>
-                  <p className="TcaseLit">{tab?.tags}</p>
+                  <p className="TcaseLit">{tab?.Type}</p>
                   <p className="Tcase">{tab?.descriptif}</p>
                   <button onClick={() => handleDelete(tab.id)}>
                     <img

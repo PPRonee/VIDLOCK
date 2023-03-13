@@ -11,7 +11,7 @@ const CreationProduit = () => {
   const prix_unitElement = useRef<HTMLInputElement>(null);
   const lien_imageElement = useRef<HTMLInputElement>(null);
   const lien_videoElement = useRef<HTMLInputElement>(null);
-  const tagsElement = useRef<HTMLInputElement>(null);
+  // const tagsElement = useRef<HTMLInputElement>(null);
   const TypeElement = useRef<HTMLInputElement>(null);
   const descriptifElement = useRef<HTMLInputElement>(null);
 
@@ -26,7 +26,7 @@ const CreationProduit = () => {
     console.log(prix_unitElement.current?.value);
     console.log(lien_imageElement.current?.value);
     console.log(lien_videoElement.current?.value);
-    console.log(tagsElement.current?.value);
+    // console.log(tagsElement.current?.value);
     console.log(TypeElement.current?.value);
     console.log(descriptifElement.current?.value);
 
@@ -39,7 +39,7 @@ const CreationProduit = () => {
       prix_unit: parseInt(prix_unitElement.current?.value ?? "1"),
       lien_image: lien_imageElement.current?.value,
       lien_video: lien_imageElement.current?.value,
-      tags: tagsElement.current?.value,
+      // tags: tagsElement.current?.value,
       Type: TypeElement.current?.value,
       descriptif: descriptifElement.current?.value,
     };
@@ -182,17 +182,17 @@ const CreationProduit = () => {
             />
           </div>
 
-          <div className="englobeur">
+          {/* <div className="englobeur">
             <label htmlFor="passwordUser">tags</label>
             <input
               type="name"
               className="form-control"
               id="nameUser"
               placeholder="['tags']"
-              ref={tagsElement}
+              ref={TypeElement}
               required
             />
-          </div>
+          </div> */}
 
           <div className="englobeur">
             <label htmlFor="passwordUser">Type</label>
