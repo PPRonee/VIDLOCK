@@ -160,6 +160,12 @@ const Panier = () => {
     console.table(produits);
   };
 
+
+  const ReservationAction = () => { 
+    alert("Vous etes redirigez vers la page paiement")
+    
+  };
+
   useEffect(() => {
     const produits = getProduits();
     setTabProduits(produits);
@@ -169,7 +175,7 @@ const Panier = () => {
       setPayload(payloadRecup);
       console.table(payloadRecup);
       console.log(JSON.stringify(payloadRecup));
-      console.log("payloadRecup",payloadRecup.Nom);
+      console.log("payloadRecup", payloadRecup.Nom);
     }
   }, []);
 
@@ -185,8 +191,10 @@ const Panier = () => {
     if (localStoragePayload) {
     }
   }, []);
-   console.log("payload use state",payload);
-   
+  console.log("payload use state", payload);
+
+  
+
   return (
     <div>
       <Navbar />
@@ -292,7 +300,9 @@ const Panier = () => {
             <div className="coteAcote">
               <div>
                 <div className="leTotal">{totalPanier} € </div>
-                <div className="leTotalTTC">TTC</div>
+                <div className="leTotalTTC">
+                  {payload?.Siret ? <p>HT</p> : <p>TTC</p>}
+                </div>
 
                 <p>
                   <img
@@ -302,7 +312,10 @@ const Panier = () => {
                   />
                 </p>
               </div>
-              <div className="butres">
+              <div
+                className="butres"
+                onClick={() => ReservationAction()}
+              >
                 <NavLink to="/Paypal">
                   RESERVATION
                   <img className="CB" src="./Assets/cb.png" alt="panier" />
