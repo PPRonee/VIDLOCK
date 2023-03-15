@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import "./ProduitCard.css";
-import { useEffect, useState } from "react";
 import axios from "axios";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-interface Produits {
+interface Produit {
   id: number;
   refproduit: string;
   marque: string;
@@ -17,18 +16,50 @@ interface Produits {
   lien_image: string;
   lien_video: string;
   Type: string;
+  quantitée: number;
+}
+
+function saveProduits(produits: Produit[]) {
+  localStorage.setItem("produits", JSON.stringify(produits));
+}
+
+function getProduits(): Produit[] {
+  const produits = localStorage.getItem("produits");
+  if (produits) {
+    return JSON.parse(produits);
+  } else {
+    return [];
+  }
 }
 
 function Audio() {
+  const [tabProduits, setTabProduits] = useState<Produit[]>([]);
   useEffect(() => {
-    axios.get("http://localhost:8080/api/produits").then((response) => {
-      console.table(response.data);
-      setTabProduits(response.data);
-    });
+    axios
+      .get<Produit[]>("http://localhost:8080/api/produits")
+      .then((response) => {
+        console.table(response.data);
+        setTabProduits(response.data);
+      })
+      .catch((error) => console.error(error));
   }, []);
 
-  const [tabProduits, setTabProduits] = useState<Produits[]>([]);
-  const [selectedProduit, setSelectedProduit] = useState<Produits | null>(null);
+  const [selectedProduit, setSelectedProduit] = useState<Produit | null>(null);
+
+  const HandleAddProduit = (produit: Produit) => {
+    const produits = getProduits();
+    let foundProduct = produits.find((p) => p.id === produit.id);
+    if (foundProduct !== undefined) {
+      foundProduct.quantitée++;
+    } else {
+      produit.quantitée = 1;
+      produits.push(produit);
+    }
+
+    saveProduits(produits);
+    alert("vous avez ajouté le produit dans votre panier");
+    console.table(produits);
+  };
 
   return (
     <div>
@@ -39,7 +70,7 @@ function Audio() {
       <div className="center">
         <div className="Tcard">
           {tabProduits
-            .filter((produit) => produit.categorie === "Audio")
+            .filter((produit) => produit.categorie === "audio")
             .map((tab, i) => (
               <div className="cardT" key={i}>
                 <div className="photETpro">
@@ -48,7 +79,7 @@ function Audio() {
                       className="Phototaille"
                       src={tab?.lien_image}
                       alt="produit"
-                    ></img>
+                    />
                   </p>
                   <p className="nomen">{tab?.refproduit}</p>
                 </div>
@@ -68,14 +99,15 @@ function Audio() {
                       voir produit
                     </button>
                   </NavLink>
-                  <p className="prix">{tab?.prix_unit}€/jour</p>
-                  <button>
-                    <img
-                      className="panier"
-                      src="./Assets/Panier.png"
-                      alt="panier"
-                    />
-                  </button>
+                  {tabProduits.length > 0 && (
+                    <button onClick={() => HandleAddProduit(tab)}>
+                      <img
+                        className="panier"
+                        src="../Assets/Panier.png"
+                        alt="panier"
+                      />
+                    </button>
+                  )}
                 </div>
               </div>
             ))}

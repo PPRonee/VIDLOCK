@@ -21,6 +21,7 @@ interface Produit {
 const SearchBar = () => {
   const [produits, setProduits] = useState<Produit[]>([]);
   const [filteredProduits, setFilteredProduits] = useState<Produit[]>([]);
+  const [selectedProduit, setSelectedProduit] = useState<Produit | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
@@ -88,7 +89,7 @@ const SearchBar = () => {
                     <button
                       value={tab?.id}
                       className="butProduit"
-                      // onClick={() => setSelectedProduit(tab)}
+                      onClick={() => setSelectedProduit(tab)}
                     >
                       voir produit
                     </button>

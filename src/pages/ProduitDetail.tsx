@@ -16,7 +16,7 @@ interface Produit {
   prix_unit: number;
   lien_image: string;
   lien_video: string;
-  tags: string[];
+
   quantitée: number;
 }
 
