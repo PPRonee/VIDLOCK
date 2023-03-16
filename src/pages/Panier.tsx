@@ -169,7 +169,7 @@ const Panier = () => {
   useEffect(() => {
     const produits = getProduits();
     setTabProduits(produits);
-    const accessToken = localStorage.getItem("token");
+    const accessToken = localStorage.getItem("tokenClient");
     if (accessToken) {
       const payloadRecup: PayloadToken = jwt_decode(accessToken);
       setPayload(payloadRecup);
