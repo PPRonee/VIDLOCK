@@ -1,9 +1,10 @@
 import { clear } from "@testing-library/user-event/dist/clear";
 import { FormEvent, useEffect, useRef, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import "./Panier.css";
 import jwt_decode from "jwt-decode";
+import axios from "axios";
 
 interface Produit {
   // filter(arg0: (p: any) => boolean): Produit;
@@ -144,8 +145,7 @@ const Panier = () => {
         total += produit.quantitée * produit.prix_unit * totalDays;
       }
     }
-    // setSiret(siret);
-    // console.log(total);
+
     return total;
   }
 
@@ -160,12 +160,57 @@ const Panier = () => {
     console.table(produits);
   };
 
+  const [payload, setPayload] = useState<PayloadToken>();
 
-  const ReservationAction = () => { 
-    alert("Vous etes redirigez vers la page paiement")
-    
+  // ********************************************************
+  const today: Date = new Date();
+  const formattedDate: string = `${today.getFullYear()}-${(today.getMonth() + 1)
+    .toString()
+    .padStart(2, "0")}-${today.getDate().toString().padStart(2, "0")}`;
+  console.log(formattedDate);
+
+  let Resa = {
+    Date_Resa: formattedDate,
+    Nom_client: payload?.Nom,
+    Date_debut: Date_depart.current?.value,
+    Date_fin: Date_retour.current?.value,
   };
 
+  const navigate = useNavigate();
+
+  const ReservationAction = () => {
+    console.log(Resa.Nom_client)
+    console.log(Resa.Date_Resa);
+    console.log(Resa.Date_debut);
+    console.log(Resa.Date_fin);
+    axios
+      .post(
+        "http://localhost:8080/api/reservation",
+        {
+          Date_Resa: formattedDate,
+          Nom_client: payload?.Nom,
+          Date_debut: Date_depart.current?.value,
+          Date_fin: Date_retour.current?.value,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("tokenClient")}`,
+          },
+        }
+      )
+      .then((response) => {
+        console.log("********** reception ***********");
+        console.table("response.data: ", response.data);
+
+        alert("Vous etes redirigez vers la page paiement");
+        // alert("Le produit a été ajouté");
+        navigate("/Paypal");
+      })
+      .catch((err) => {
+        alert("Un element est incorect");
+      });
+  };
+  // ********************************************************
   useEffect(() => {
     const produits = getProduits();
     setTabProduits(produits);
@@ -184,16 +229,12 @@ const Panier = () => {
     setTotalPanier(total);
   }, [tabProduits, totalDays]);
 
-  const [payload, setPayload] = useState<PayloadToken>();
-
   useEffect(() => {
     let localStoragePayload = localStorage.getItem("payload");
     if (localStoragePayload) {
     }
   }, []);
   console.log("payload use state", payload);
-
-  
 
   return (
     <div>
@@ -312,14 +353,9 @@ const Panier = () => {
                   />
                 </p>
               </div>
-              <div
-                className="butres"
-                onClick={() => ReservationAction()}
-              >
-                <NavLink to="/Paypal">
-                  RESERVATION
-                  <img className="CB" src="./Assets/cb.png" alt="panier" />
-                </NavLink>
+              <div className="butres" onClick={() => ReservationAction()}>
+                RESERVATION
+                <img className="CB" src="./Assets/cb.png" alt="panier" />
               </div>
             </div>
           </div>
