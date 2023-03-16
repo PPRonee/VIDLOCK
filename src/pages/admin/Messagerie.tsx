@@ -13,10 +13,16 @@ interface Message {
 
 const Messagerie = () => {
   useEffect(() => {
-    axios.get("http://localhost:8080/api/message").then((response) => {
-      console.table(response.data);
-      SetTabMessage(response.data);
-    });
+    axios
+      .get("http://localhost:8080/api/message", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("tokenAdmin")}`,
+        },
+      })
+      .then((response) => {
+        console.table(response.data);
+        SetTabMessage(response.data);
+      });
   }, []);
 
   const [tabMessage, SetTabMessage] = useState<Message[]>([]);
@@ -26,24 +32,22 @@ const Messagerie = () => {
       axios
         .delete(`http://localhost:8080/api/message/${id}`, {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+            Authorization: `Bearer ${localStorage.getItem("tokenAdmin")}`,
           },
         })
         .then(() => {
           SetTabMessage(tabMessage.filter((msg) => msg.id !== id));
-          alert("le message a été supprimer")
+          alert("le message a été supprimer");
         })
         .catch((error) => {
           console.log("tu ne peux pas poster", error);
           if (error.response.data.statusCode === 401) {
-           
           }
         });
     }
   };
 
-
-const handlePatch = (id: number, newValue: string) => {
+  const handlePatch = (id: number, newValue: string) => {
     axios
       .patch(
         `http://localhost:8080/api/message/${id}`,
@@ -52,7 +56,7 @@ const handlePatch = (id: number, newValue: string) => {
         },
         {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+            Authorization: `Bearer ${localStorage.getItem("tokenAdmin")}`,
           },
         }
       )
@@ -68,7 +72,7 @@ const handlePatch = (id: number, newValue: string) => {
         );
         // setTimeout(() => {
         //   alert("Observation mise à jour");
-        // }, 1000); // 1000ms = 1s 
+        // }, 1000); // 1000ms = 1s
       })
       .catch((error) => {
         console.log("Erreur lors de la mise à jour", error);
@@ -76,9 +80,7 @@ const handlePatch = (id: number, newValue: string) => {
           // gestion de l'erreur
         }
       });
-
-};
-
+  };
 
   return (
     <div>
@@ -119,7 +121,6 @@ const handlePatch = (id: number, newValue: string) => {
                 </button>
               </div>
             </div>
-            
           </div>
         ))}
       </div>

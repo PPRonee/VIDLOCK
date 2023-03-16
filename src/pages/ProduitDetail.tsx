@@ -68,7 +68,7 @@ function ProduitDetail() {
         <Navbar />
       </div>
 
-      <h1>produit</h1>
+      <h1>Détail du produit</h1>
 
       <div className="Tcard2">
         <div className="cardT2">

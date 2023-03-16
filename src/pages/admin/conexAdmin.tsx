@@ -27,12 +27,12 @@ const ConexAdmin = () => {
     console.table(Admin);
 
     await axios
-      .post("http://localhost:8080/api/admin/login", Admin)
+      .post("http://localhost:8080/api/auth/login/admin", Admin)
       .then((response) => {
         console.log("00000 je suis ici 00000");
         console.log("********************************");
         console.log("response.data: ", response.data);
-        localStorage.setItem("token", response.data.token); // très important à ne plus jamais supprimer
+        localStorage.setItem("tokenAdmin", response.data.accessToken); // très important à ne plus jamais supprimer
         setTimeout(() => {
           navigate("/adminPage");
         }, 1000);

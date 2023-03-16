@@ -32,13 +32,13 @@ const Connect = () => {
     console.table(Client);
 
     await axios
-      .post("http://localhost:8080/api/auth/login", Client)
+      .post("http://localhost:8080/api/auth/login/client", Client)
       .then((response) => {
         console.log("00000 je suis ici 00000");
         console.log("********************************");
         console.log("response.data: ", response.data);
-        localStorage.setItem("token", response.data.accessToken); // très important à ne plus jamais supprimer
-        localStorage.setItem("client", response.data.Client);
+        localStorage.setItem("tokenClient", response.data.accessToken); // très important à ne plus jamais supprimer
+       // localStorage.setItem("client", response.data.Client);
         //je tente d integrer la valeur de Client dans le storage
         setTimeout(() => {
           navigate("/");

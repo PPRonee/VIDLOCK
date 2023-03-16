@@ -34,7 +34,7 @@ const GestionProduit = () => {
       axios
         .delete(`http://localhost:8080/api/Produits/${id}`, {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+            Authorization: `Bearer ${localStorage.getItem("tokenAdmin")}`,
           },
         })
         .then(() => {
@@ -61,7 +61,7 @@ const GestionProduit = () => {
         },
         {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+            Authorization: `Bearer ${localStorage.getItem("tokenAdmin")}`,
           },
         }
       )
@@ -96,7 +96,7 @@ const GestionProduit = () => {
         },
         {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+            Authorization: `Bearer ${localStorage.getItem("tokenAdmin")}`,
           },
         }
       )
@@ -131,7 +131,7 @@ const GestionProduit = () => {
         },
         {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+            Authorization: `Bearer ${localStorage.getItem("tokenAdmin")}`,
           },
         }
       )

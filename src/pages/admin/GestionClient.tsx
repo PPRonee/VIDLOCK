@@ -23,10 +23,16 @@ interface Client {
 
 const GestionClient = () => {
   useEffect(() => {
-    axios.get("http://localhost:8080/api/client").then((response) => {
-      console.table(response.data);
-      SetTabClient(response.data);
-    });
+    axios
+      .get("http://localhost:8080/api/client", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("tokenAdmin")}`,
+        },
+      })
+      .then((response) => {
+        console.table(response.data);
+        SetTabClient(response.data);
+      });
   }, []);
 
 const [tabClient, SetTabClient] = useState<Client[]>([]);
@@ -37,7 +43,7 @@ const [tabClient, SetTabClient] = useState<Client[]>([]);
       axios
         .delete(`http://localhost:8080/api/client/${id}`, {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+            Authorization: `Bearer ${localStorage.getItem("tokenAdmin")}`,
           },
         })
         .then(() => {

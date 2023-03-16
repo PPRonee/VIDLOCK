@@ -5,14 +5,14 @@ import { Navigate, NavLink, useNavigate } from "react-router-dom";
 import SearchBar from "./SearchBar";
 
 const Heady = () => {
-  const token = localStorage.getItem("token");
-  console.log("TOKEN",token);
+  const token = localStorage.getItem("tokenClient");
+  console.log("TOKEN", token);
   const navigate = useNavigate();
 
   const Goto = () => {
     console.log("bouton cliqué");
     if (token === null) {
-      alert("Vous devez vous connectez!")
+      alert("Vous devez vous connectez!");
       navigate("/Connexion");
     } else {
       navigate("/Panier");
