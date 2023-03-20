@@ -12,7 +12,7 @@ const Heady = () => {
   const Goto = () => {
     console.log("bouton cliqué");
     if (token === null) {
-      alert("Vous devez vous connectez!");
+      alert("Vous devez vous connecter!");
       navigate("/Connexion");
     } else {
       navigate("/Panier");
@@ -24,8 +24,8 @@ const Heady = () => {
       <div className="divbut">
         <NavLink to="/UpdateClient">
           <img
-            className="Iconclient"
-            src="./Assets/Iconeclient.png"
+            className="IconUser"
+            src="./Assets/IconeUser.png"
             alt="access au compte"
           />
         </NavLink>

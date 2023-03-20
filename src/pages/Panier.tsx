@@ -65,7 +65,9 @@ const Panier = () => {
       alert("les dates sont incorrect");
     } else if (
       Date_depart.current?.value !== undefined &&
-      Date_retour.current?.value !== undefined
+      Date_retour.current?.value !== undefined &&
+      Date_depart.current?.value !== "" &&
+      Date_retour.current?.value !== ""
     ) {
       alert(`Vous avez sélectionné ${days_Diff} jours`);
       console.log(days_Diff);
@@ -174,12 +176,13 @@ const Panier = () => {
     Nom_client: payload?.Nom,
     Date_debut: Date_depart.current?.value,
     Date_fin: Date_retour.current?.value,
+    Prix_Total: totalPanier,
   };
 
   const navigate = useNavigate();
 
   const ReservationAction = () => {
-    console.log(Resa.Nom_client)
+    console.log(Resa.Nom_client);
     console.log(Resa.Date_Resa);
     console.log(Resa.Date_debut);
     console.log(Resa.Date_fin);
@@ -191,6 +194,8 @@ const Panier = () => {
           Nom_client: payload?.Nom,
           Date_debut: Date_depart.current?.value,
           Date_fin: Date_retour.current?.value,
+          Prix_Total: totalPanier,
+          produit: tabProduits,
         },
         {
           headers: {
@@ -201,9 +206,9 @@ const Panier = () => {
       .then((response) => {
         console.log("********** reception ***********");
         console.table("response.data: ", response.data);
-
         alert("Vous etes redirigez vers la page paiement");
         // alert("Le produit a été ajouté");
+        window.localStorage.removeItem("produits");
         navigate("/Paypal");
       })
       .catch((err) => {

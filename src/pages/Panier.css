@@ -21,7 +21,7 @@ h1 {
 }
 
 .englobeur2 {
-  width: 1400px;
+  width: 100%;
   display: grid;
   justify-content: center;
   background-color: rgb(65, 90, 119);
@@ -124,8 +124,8 @@ td {
   }
 
   .coteAcote {
-  display: grid;
-  align-items: center;
-  justify-content: space-between;
-}
+    display: grid;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
